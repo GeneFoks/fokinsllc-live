@@ -172,6 +172,7 @@
     <button class="filter-btn" onclick="filterGallery('gate',this)">🚪 Gates <span class="count-label" id="count-gate"></span></button>
     <button class="filter-btn" onclick="filterGallery('wood',this)">🪚 Custom Wood <span class="count-label" id="count-wood"></span></button>
     <button class="filter-btn" onclick="filterGallery('deck',this)">🏡 Deck & Outdoor <span class="count-label" id="count-deck"></span></button>
+    <button class="filter-btn" onclick="filterGallery('pergola',this)">🏛️ Pergola <span class="count-label" id="count-pergola"></span></button>
     <button class="filter-btn" onclick="filterGallery('handyman',this)">🔨 Handyman <span class="count-label" id="count-handyman"></span></button>
     <button class="filter-btn" onclick="filterGallery('special',this)">⭐ Special <span class="count-label" id="count-special"></span></button>
   </div>
@@ -196,10 +197,10 @@
       <div class="photo-overlay"><span class="photo-cat-tag">Gate</span><span class="photo-label">Double Wood Gate Installation</span></div>
     </div>
 
-    <div class="photo-card" data-category="wood" data-label="Custom Pergola Arch — Casa 1018" onclick="openLightbox(this)">
+    <div class="photo-card" data-category="pergola" data-label="Custom Pergola Arch — Casa 1018" onclick="openLightbox(this)">
       <img src="photos/wood-pergola-arch-custom.webp" alt="Custom wood pergola arch Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
-      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Custom Pergola Arch — "Casa 1018"</span></div>
+      <span class="cat-badge">Pergola</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Pergola</span><span class="photo-label">Custom Pergola Arch — "Casa 1018"</span></div>
     </div>
 
     <div class="photo-card" data-category="wood" data-label="Natural Wood Slat Accent Wall + TV" onclick="openLightbox(this)">
@@ -226,10 +227,10 @@
       <div class="photo-overlay"><span class="photo-cat-tag">Deck</span><span class="photo-label">Composite Deck Replacement</span></div>
     </div>
 
-    <div class="photo-card" data-category="deck" data-label="Louvered Patio Pergola Installation" onclick="openLightbox(this)">
+    <div class="photo-card" data-category="pergola" data-label="Louvered Patio Pergola Installation" onclick="openLightbox(this)">
       <img src="photos/deck-pergola-louvered.webp" alt="Louvered pergola patio cover installation Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Deck & Outdoor</span>
-      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Louvered Patio Pergola</span></div>
+      <span class="cat-badge">Pergola</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Pergola</span><span class="photo-label">Louvered Patio Pergola</span></div>
     </div>
 
     <div class="photo-card" data-category="handyman" data-label="Walk-In Closet Assembly" onclick="openLightbox(this)">
@@ -330,10 +331,10 @@
       <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Wood Slat Panel + TV Mount</span></div>
     </div>
 
-    <div class="photo-card" data-category="deck" data-label="Pergola Build — Structural Test 💪" onclick="openLightbox(this)">
+    <div class="photo-card" data-category="pergola" data-label="Pergola Build — Structural Test 💪" onclick="openLightbox(this)">
       <img src="photos/deck-pergola-gene-test.webp" alt="Custom pergola backyard build Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Deck & Outdoor</span><span class="featured-badge">Gene-Approved ✓</span>
-      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Custom Pergola — Gene-Approved 💪</span></div>
+      <span class="cat-badge">Pergola</span><span class="featured-badge">Gene-Approved ✓</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Pergola</span><span class="photo-label">Custom Pergola — Gene-Approved 💪</span></div>
     </div>
 
     <div class="photo-card" data-category="deck" data-label="Composite Deck Stairs with Railings" onclick="openLightbox(this)">
@@ -507,7 +508,7 @@
   function updateCounts(){
     const all=document.querySelectorAll('.photo-card');
     document.getElementById('count-all').textContent='('+all.length+')';
-    ['fence','gate','wood','deck','handyman','special'].forEach(c=>{
+    ['fence','gate','wood','deck','pergola','handyman','special'].forEach(c=>{
       const n=document.querySelectorAll('.photo-card[data-category="'+c+'"]').length;
       const el=document.getElementById('count-'+c);
       if(el) el.textContent=n>0?'('+n+')':'';
