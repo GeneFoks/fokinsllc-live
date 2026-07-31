@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Free Estimate — Fokins Custom Woodwork | Cedar Park, TX</title>
+  <meta name="description" content="Get an instant estimate for wood fence, gate, or handyman services. Gene responds same day. (737) 400-1230.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-layout { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem 5rem; display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } }
+
+    /* CALCULATOR */
+    .calc-box { background: #fff; border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(139,69,19,0.08); border: 1px solid #EDE4D8; }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 0.25rem; }
+    .calc-sub { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.5rem; }
+
+    .calc-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #EDE4D8; padding-bottom: 0; }
+    .calc-tab { padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; color: var(--muted); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .calc-tab.active { color: var(--cedar); border-bottom-color: var(--cedar); font-weight: 600; }
+
+    .calc-panel { display: none; }
+    .calc-panel.active { display: block; }
+
+    .calc-item { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid #F0E8DE; gap: 1rem; }
+    .calc-item:last-of-type { border-bottom: none; }
+    .ci-info { flex: 1; }
+    .ci-name { font-size: 0.9rem; font-weight: 500; color: var(--dark); }
+    .ci-desc { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+    .ci-right { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .ci-price { font-size: 0.88rem; font-weight: 600; color: var(--cedar); min-width: 70px; text-align: right; }
+
+    .counter { display: flex; align-items: center; gap: 0.5rem; }
+    .counter-btn { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid #D4C4B0; background: none; cursor: pointer; font-size: 1rem; color: var(--text); display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
+    .counter-btn:hover { border-color: var(--cedar); color: var(--cedar); }
+    .counter-val { font-size: 0.95rem; font-weight: 600; min-width: 20px; text-align: center; }
+
+    .footage-row { padding: 0.9rem 0; border-bottom: 1px solid #F0E8DE; }
+    .footage-row .ci-name { font-size: 0.9rem; font-weight: 500; color: var(--dark); margin-bottom: 0.5rem; }
+    .footage-input { display: flex; align-items: center; gap: 0.75rem; }
+    .footage-input input { width: 80px; padding: 0.4rem 0.6rem; border: 1.5px solid #D4C4B0; border-radius: 6px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--text); }
+    .footage-input input:focus { outline: none; border-color: var(--cedar); }
+    .footage-note { font-size: 0.78rem; color: var(--muted); }
+
+    .hourly-note { background: var(--cream); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; border: 1px solid #EDE4D8; }
+
+    /* TOTAL */
+    .calc-total { background: var(--dark); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .ct-label { color: rgba(255,255,255,0.7); font-size: 0.875rem; }
+    .ct-amount { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 700; }
+    .ct-note { color: rgba(255,255,255,0.4); font-size: 0.72rem; margin-top: 0.15rem; }
+
+    /* FORM */
+    .form-section { margin-top: 1.5rem; }
+    .form-section h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid #D4C4B0; border-radius: 8px;
+      font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--text); background: #fff;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--cedar); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .contact-method-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .cm-btn { padding: 0.45rem 0.9rem; border: 1.5px solid #D4C4B0; border-radius: 6px; background: none; cursor: pointer; font-size: 0.82rem; font-family: 'DM Sans', sans-serif; color: var(--text); transition: all 0.2s; }
+    .cm-btn.selected { border-color: var(--cedar); background: var(--cedar); color: #fff; }
+    .submit-btn { width: 100%; padding: 1rem; background: var(--cedar); color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; margin-top: 0.5rem; }
+    .submit-btn:hover { background: var(--cedar-lt); }
+
+    /* SUCCESS */
+    .success-msg { display: none; text-align: center; padding: 2rem; }
+    .success-msg.show { display: block; }
+    .success-msg h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--dark); margin: 1rem 0 0.5rem; }
+    .success-msg p { color: var(--muted); margin-bottom: 1.5rem; }
+    .success-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* SIDEBAR */
+    .sidebar .contact-card { background: var(--dark); border-radius: 16px; padding: 2rem; color: #fff; margin-bottom: 1.5rem; }
+    .sidebar .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1.25rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-item .ci-icon { font-size: 1.25rem; width: 32px; text-align: center; flex-shrink: 0; }
+    .contact-item .ci-text a { color: #fff; text-decoration: none; font-weight: 500; }
+    .contact-item .ci-text a:hover { color: var(--gold); }
+    .contact-item .ci-sub { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+
+    .trust-card { background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid #EDE4D8; }
+    .trust-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; }
+    .trust-item span:first-child { font-size: 1.1rem; }
+    .trust-item .ti-text { font-size: 0.875rem; font-weight: 500; color: var(--text); }
+    .trust-item .ti-sub { font-size: 0.75rem; color: var(--muted); }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fokins Custom Woodwork",
+    "image": "https://fokinsllc.com/photos/fence-cedar-privacy-01.webp",
+    "url": "https://fokinsllc.com",
+    "telephone": "+17374001230",
+    "email": "fokinsllc@gmail.com",
+    "description": "Cedar Park's trusted custom woodwork and handyman service. Decks, fences, gates, custom furniture, and more. Top Pro 2025 on Thumbtack. 4.9★ rating.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Park",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.5052,
+      "longitude": -97.8203
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "166",
+      "bestRating": "5"
+    },
+    "priceRange": "$$",
+    "areaServed": [
+      "Cedar Park, TX",
+      "Leander, TX",
+      "Round Rock, TX",
+      "Georgetown, TX",
+      "Austin, TX",
+      "Pflugerville, TX",
+      "Hutto, TX",
+      "Liberty Hill, TX"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wood Fence Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gate Installation & Repair"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Furniture & Built-Ins"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Deck & Porch Repairs"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Handyman Services"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Door Installation & Repair"}}
+      ]
+    },
+    "sameAs": [
+      "https://www.thumbtack.com/tx/cedar-park/handyman/handyman-service-fokins-llc/service/525414248132755469",
+      "https://instagram.com/fokinsllc"
+    ]
+  }
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/contact.html" />
+  <meta property="og:title" content="Get Free Estimate — Fokins Custom Woodwork | Cedar Park, TX" />
+  <meta property="og:description" content="Get a free on-site estimate within 24 hours. Wood fence, deck, custom furniture, handyman. Gene responds same day. (737) 400-1230." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get Free Estimate — Fokins Custom Woodwork | Cedar Park, TX" />
+  <meta name="twitter:description" content="Get a free on-site estimate within 24 hours. Wood fence, deck, custom furniture, handyman. Gene responds same day. (737) 400-1230." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <link rel="canonical" href="https://fokinsllc.com/contact.html" />
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a>
+  <a href='/services'>🔧 Services</a>
+  <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+  <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+  <a href='/handyman-cedar-park'>🔧 Handyman</a>
+  <a href='/custom-furniture-austin'>🪑 Furniture</a>
+  <a href='/gallery'>📷 Gallery</a>
+  <a href='/about'>👤 About</a>
+  <a href='/faq'>❓ FAQ</a>
+  <a href='/contact'>📬 Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+  <div class="page-hero">
+    <div class="breadcrumb"><a href='/'>Home</a> / Contact</div>
+    <h1>Get Your <em>Free Estimate</em></h1>
+    <p>Use the calculator for an instant estimate, then submit your request. Gene calls or texts same day.</p>
+  </div>
+</div>
+
+<div class="contact-layout">
+  <!-- CALCULATOR + FORM -->
+  <div>
+    <div class="calc-box">
+      <div class="calc-title">Project Estimator</div>
+      <div class="calc-sub">Prices include labor · Materials noted separately</div>
+
+      <div class="calc-tabs">
+        <button class="calc-tab active" onclick="switchTab('fences', this)">🌲 Wood & Fences</button>
+        <button class="calc-tab" onclick="switchTab('handyman', this)">🔨 Handyman</button>
+        <button class="calc-tab" onclick="switchTab('custom', this)">🪑 Custom Work</button>
+      </div>
+
+      <!-- FENCES TAB -->
+      <div class="calc-panel active" id="tab-fences">
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Fence section replacement</div><div class="ci-desc">$350 · All materials included</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('fence_section',-1)">−</button><span class="counter-val" id="val-fence_section">0</span><button class="counter-btn" onclick="change('fence_section',1)">+</button></div>
+            <div class="ci-price" id="price-fence_section">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Post replacement</div><div class="ci-desc">$215 · All materials included</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('fence_post',-1)">−</button><span class="counter-val" id="val-fence_post">0</span><button class="counter-btn" onclick="change('fence_post',1)">+</button></div>
+            <div class="ci-price" id="price-fence_post">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Gate installation (new)</div><div class="ci-desc">$400/gate · All materials included</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('gate_new',-1)">−</button><span class="counter-val" id="val-gate_new">0</span><button class="counter-btn" onclick="change('gate_new',1)">+</button></div>
+            <div class="ci-price" id="price-gate_new">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Gate repair / adjustment</div><div class="ci-desc">From $170 · Alignment, hardware, sagging</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('gate_repair',-1)">−</button><span class="counter-val" id="val-gate_repair">0</span><button class="counter-btn" onclick="change('gate_repair',1)">+</button></div>
+            <div class="ci-price" id="price-gate_repair">$0</div>
+          </div>
+        </div>
+        <div class="footage-row">
+          <div class="ci-name">Full fence installation · Custom quote</div>
+          <div class="ci-desc" style="font-size:0.78rem;color:var(--muted);margin:0.3rem 0 0.6rem;">Enter linear footage for estimate</div>
+          <div class="footage-input">
+            <input type="number" id="footage" min="0" placeholder="0" oninput="updateFootage()">
+            <span class="footage-note">lin. ft → <strong id="footage-est">$0</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HANDYMAN TAB -->
+      <div class="calc-panel" id="tab-handyman">
+        <div class="hourly-note">⏱ Hourly services · $95/hr · 2-hour minimum</div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Door installation or repair</div><div class="ci-desc">$260 · Interior or exterior</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('door',-1)">−</button><span class="counter-val" id="val-door">0</span><button class="counter-btn" onclick="change('door',1)">+</button></div>
+            <div class="ci-price" id="price-door">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">TV mounting</div><div class="ci-desc">$125 flat rate</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('tv',-1)">−</button><span class="counter-val" id="val-tv">0</span><button class="counter-btn" onclick="change('tv',1)">+</button></div>
+            <div class="ci-price" id="price-tv">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Drywall repair & texturing</div><div class="ci-desc">$95/hr · Materials extra</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('drywall',-1)">−</button><span class="counter-val" id="val-drywall">0</span><button class="counter-btn" onclick="change('drywall',1)">+</button></div>
+            <div class="ci-price" id="price-drywall">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Plumbing repair</div><div class="ci-desc">$125 · Faucet, toilet, shower, disposal</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('plumbing',-1)">−</button><span class="counter-val" id="val-plumbing">0</span><button class="counter-btn" onclick="change('plumbing',1)">+</button></div>
+            <div class="ci-price" id="price-plumbing">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">General handyman hours</div><div class="ci-desc">$95/hr · Any misc tasks</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('general',-1)">−</button><span class="counter-val" id="val-general">2</span><button class="counter-btn" onclick="change('general',1)">+</button></div>
+            <div class="ci-price" id="price-general">$160</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM TAB -->
+      <div class="calc-panel" id="tab-custom">
+        <div class="hourly-note">🪚 Custom woodwork projects are quoted on-site. Fill out the form and Gene will provide a free estimate.</div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Deck / porch (per sq ft)</div><div class="ci-desc">~$15–25/sq ft labor · Materials extra</div></div>
+          <div class="ci-right">
+            <div class="footage-input" style="gap:0.5rem;">
+              <input type="number" id="deck_sqft" min="0" placeholder="0" style="width:70px;padding:0.4rem 0.6rem;border:1.5px solid #D4C4B0;border-radius:6px;font-size:0.9rem;font-family:'DM Sans',sans-serif;color:var(--text);" oninput="updateDeck()">
+              <span style="font-size:0.78rem;color:var(--muted);">sq ft → <strong id="deck-est">$0</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Security camera installation</div><div class="ci-desc">$125 · Per camera · Labor only</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('camera',-1)">−</button><span class="counter-val" id="val-camera">0</span><button class="counter-btn" onclick="change('camera',1)">+</button></div>
+            <div class="ci-price" id="price-camera">$0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOTAL -->
+      <div class="calc-total">
+        <div><div class="ct-label">Estimated total</div><div class="ct-note">Materials included where noted · Free on-site estimate available</div></div>
+        <div id="grand-total" class="ct-amount">$0</div>
+      </div>
+
+      <!-- JOBBER BOOKING FORM -->
+      <div class="form-section" id="formSection">
+        <h3>Request a Free Estimate</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">Fill out the form below — Gene will respond within a few hours, 7 days a week.</p>
+
+        <!-- JOBBER EMBED -->
+        <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+        <div id="c8ff53d1-43e9-4ee0-b07a-317bdd03512e-2240945"></div>
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="c8ff53d1-43e9-4ee0-b07a-317bdd03512e-2240945" form_url="https://clienthub.getjobber.com/client_hubs/c8ff53d1-43e9-4ee0-b07a-317bdd03512e/public/work_request/embedded_work_request_form?form_id=2240945"></script>
+
+        <div style="text-align:center;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #EDE4D8;font-size:0.85rem;color:var(--muted);">
+          Prefer to talk? Call or text Gene directly:<br>
+          <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230" style="color:var(--cedar);font-weight:700;font-size:1rem;">(737) 400-1230</a>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="success-msg" id="successMsg">
+        <div style="font-size:3rem;">✅</div>
+        <h3>Request Sent!</h3>
+        <p>Gene will call or text you today. For fastest response:</p>
+        <div class="success-actions">
+          <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230" class="btn-primary">📞 Call (737) 400-1230</a>
+          <a href="https://wa.me/17374001230" target="_blank" class="btn-ghost">💬 WhatsApp Gene</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="contact-card">
+      <h3>Contact Gene Directly</h3>
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div class="ci-text"><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230">(737) 400-1230</a><div class="ci-sub">Call or text</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">💬</div>
+        <div class="ci-text"><a href="https://wa.me/17374001230" target="_blank">WhatsApp Gene</a><div class="ci-sub">Message on WhatsApp</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🕐</div>
+        <div class="ci-text"><span>8 AM – 8 PM · 7 days a week</span></div>
+      </div>
+    </div>
+
+    <div class="trust-card">
+      <h4>Why Fokins Custom Woodwork</h4>
+      <div class="trust-item"><span>🏆</span><div><div class="ti-text">Top Pro 2025</div><div class="ti-sub">Thumbtack · 4.9★ · 166 reviews</div></div></div>
+      <div class="trust-item"><span>⭐</span><div><div class="ti-text">5.0★ Google</div><div class="ti-sub">83 verified reviews</div></div></div>
+      <div class="trust-item"><span>👤</span><div><div class="ti-text">Family-Owned Business</div><div class="ti-sub">Gene personally does all custom woodwork</div></div></div>
+      <div class="trust-item"><span>🛡️</span><div><div class="ti-text">Fully Insured</div><div class="ti-sub">Every job, every time</div></div></div>
+      <div class="trust-item"><span>💰</span><div><div class="ti-text">Free Estimates</div><div class="ti-sub">No pressure, no hidden fees</div></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'contact.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+
+<script>
+  // Calculator state
+  const prices = {
+    fence_section: 350, fence_post: 215, gate_new: 440, gate_repair: 170,
+    door: 260, tv: 125, drywall: 125, plumbing: 125, general: 125,
+    camera: 125
+  };
+  const counts = { fence_section:0, fence_post:0, gate_new:0, gate_repair:0, door:0, tv:160/80, drywall:0, plumbing:0, general:2, camera:0 };
+  // fix general default
+  const state = {};
+  Object.keys(prices).forEach(k => state[k] = 0);
+  state.general = 2;
+
+  function change(key, delta) {
+    state[key] = Math.max(0, (state[key] || 0) + delta);
+    document.getElementById('val-' + key).textContent = state[key];
+    const p = state[key] * prices[key];
+    document.getElementById('price-' + key).textContent = '$' + p.toLocaleString();
+    updateTotal();
+  }
+
+  function updateFootage() {
+    const ft = parseFloat(document.getElementById('footage').value) || 0;
+    const est = Math.round(ft * 18);
+    document.getElementById('footage-est').textContent = est > 0 ? '$' + est.toLocaleString() + '+' : '$0';
+    updateTotal();
+  }
+
+  function updateDeck() {
+    const sf = parseFloat(document.getElementById('deck_sqft').value) || 0;
+    const est = Math.round(sf * 20);
+    document.getElementById('deck-est').textContent = est > 0 ? '$' + est.toLocaleString() + '+' : '$0';
+    updateTotal();
+  }
+
+  function updateTotal() {
+    let total = 0;
+    Object.keys(state).forEach(k => { total += (state[k] || 0) * prices[k]; });
+    const ft = parseFloat(document.getElementById('footage')?.value) || 0;
+    total += Math.round(ft * 18);
+    const sf = parseFloat(document.getElementById('deck_sqft')?.value) || 0;
+    total += Math.round(sf * 20);
+    document.getElementById('grand-total').textContent = '$' + total.toLocaleString();
+    document.getElementById('form-total').textContent = '$' + total.toLocaleString();
+  }
+
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  function selectContact(btn, value) {
+    document.querySelectorAll('.cm-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('hidden_contact').value = value;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('estimateForm');
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+
+    // Update hidden fields before submit
+    document.getElementById('hidden_total').value = document.getElementById('form-total').textContent;
+
+    // Submit to Netlify
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    })
+    .catch(() => {
+      // Fallback — show success anyway
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    });
+  }
+
+  // Init prices display
+  document.getElementById('price-general').textContent = '$160';
+  updateTotal();
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

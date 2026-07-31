@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found — Fokins Custom Woodwork</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+  <style>
+    .not-found { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+    .not-found-inner { max-width: 520px; }
+    .not-found-num { font-family: 'Playfair Display', serif; font-size: 8rem; font-weight: 700; color: #EDE4D8; line-height: 1; margin-bottom: 1rem; }
+    .not-found h1 { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--dark); margin-bottom: 0.75rem; }
+    .not-found p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .not-found-links { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .link-chip { background: #fff; border: 1px solid #EDE4D8; color: var(--cedar); padding: 0.5rem 1.1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.15s; }
+    .link-chip:hover { background: var(--cedar); color: #fff; border-color: var(--cedar); }
+  </style>
+</head>
+<body>
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'404.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a>
+  <a href='/services'>🔧 Services</a>
+  <a href='/gallery'>📷 Gallery</a>
+  <a href='/contact'>📬 Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'404.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+  <div class="not-found">
+    <div class="not-found-inner">
+      <div class="not-found-num">404</div>
+      <h1>Page Not Found</h1>
+      <p>Looks like this page got lost in the sawdust. Let's get you back on track — or just call Gene directly.</p>
+      <div style="margin-bottom:1.75rem;">
+        <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'404.html'})" href="tel:+17374001230" class="btn-primary">📞 Call (737) 400-1230</a>
+      </div>
+      <div class="not-found-links">
+        <a class='link-chip' href='/'>🏠 Home</a>
+        <a class='link-chip' href='/services'>🔧 Services</a>
+        <a class='link-chip' href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a class='link-chip' href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a class='link-chip' href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a class='link-chip' href='/gallery'>📷 Gallery</a>
+        <a class='link-chip' href='/contact'>📬 Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

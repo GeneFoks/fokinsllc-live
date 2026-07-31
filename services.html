@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services & Pricing — Fokins Custom Woodwork | Cedar Park Wood Fence & Handyman</title>
+  <meta name="description" content="Custom woodwork, cedar fences average ~$3,500, gates from $400, doors from $260, handyman $95/hr. Free estimates. Serving Cedar Park, Leander, Round Rock, Georgetown TX.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+
+    /* FEATURED SERVICES */
+    .featured-services { display: flex; flex-direction: column; gap: 4rem; margin-bottom: 5rem; }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+      background: #fff; border-radius: 20px; padding: 3rem;
+      border: 1px solid #EDE4D8; box-shadow: 0 4px 20px rgba(139,69,19,0.06);
+    }
+    .featured-card.reverse { direction: rtl; }
+    .featured-card.reverse > * { direction: ltr; }
+    .fc-badge {
+      display: inline-block; background: var(--gold); color: var(--dark);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.75rem; border-radius: 4px; margin-bottom: 1rem;
+    }
+    .fc-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .featured-card h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--dark); margin-bottom: 0.75rem; }
+    .featured-card p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .fc-includes h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cedar); margin-bottom: 0.75rem; }
+    .fc-includes ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .fc-includes ul li { font-size: 0.9rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .fc-includes ul li::before { content: '✓'; color: var(--cedar); font-weight: 700; flex-shrink: 0; }
+    .fc-price {
+      background: var(--cream); border-radius: 12px; padding: 1.5rem;
+      border: 1px solid #EDE4D8; margin-top: 1.5rem;
+    }
+    .fc-price .price-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.25rem; }
+    .fc-price .price-val { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--cedar); font-weight: 700; }
+    .fc-price .price-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+    .fc-btns { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-card.reverse { direction: ltr; }
+    }
+
+    /* MORE SERVICES GRID */
+    .more-services { margin-bottom: 5rem; }
+    .more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .more-card {
+      background: #fff; border-radius: 14px; padding: 1.75rem;
+      border: 1px solid #EDE4D8; transition: all 0.25s;
+    }
+    .more-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(139,69,19,0.1); }
+    .more-card .mc-icon { font-size: 1.75rem; margin-bottom: 0.75rem; display: block; }
+    .more-card h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem; }
+    .more-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+    .more-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1rem; }
+    .more-card ul li { font-size: 0.82rem; color: var(--text); display: flex; align-items: center; gap: 0.4rem; }
+    .more-card ul li::before { content: '·'; color: var(--cedar); font-weight: 700; }
+    .more-card .mc-price { font-size: 0.82rem; font-weight: 600; color: var(--cedar); border-top: 1px solid #EDE4D8; padding-top: 0.75rem; }
+    @media (max-width: 900px) { .more-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .more-grid { grid-template-columns: 1fr; } }
+
+    /* PRICING TABLE */
+    .pricing-section { background: #F5EFE8; border-radius: 20px; padding: 3rem; margin-bottom: 5rem; }
+    .pricing-section h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .pricing-section > p { color: var(--muted); margin-bottom: 2rem; }
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th { text-align: left; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0.75rem 1rem; border-bottom: 2px solid #D4C4B0; }
+    .price-table td { padding: 1rem; border-bottom: 1px solid #EDE4D8; font-size: 0.9rem; vertical-align: top; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr:hover td { background: rgba(255,255,255,0.5); }
+    .price-table td:first-child { font-weight: 500; color: var(--dark); }
+    .price-table td:nth-child(2) { color: var(--cedar); font-weight: 600; }
+    .price-table td:last-child { color: var(--muted); font-size: 0.82rem; }
+    @media (max-width: 600px) { .pricing-section { padding: 1.5rem; } .price-table td { padding: 0.75rem 0.5rem; font-size: 0.82rem; } }
+
+    /* SERVICE AREA */
+    .area-section { text-align: center; margin-bottom: 3rem; }
+    .area-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 1.5rem; }
+    .area-tag {
+      background: #fff; border: 1.5px solid #D4C4B0; color: var(--text);
+      padding: 0.45rem 1.1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 500;
+    }
+    .area-tag.primary { border-color: var(--cedar); color: var(--cedar); font-weight: 600; }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fokins Custom Woodwork",
+    "image": "https://fokinsllc.com/photos/fence-cedar-privacy-01.webp",
+    "url": "https://fokinsllc.com",
+    "telephone": "+17374001230",
+    "email": "fokinsllc@gmail.com",
+    "description": "Cedar Park's trusted custom woodwork and handyman service. Decks, fences, gates, custom furniture, and more. Top Pro 2025 on Thumbtack. 4.9★ rating.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Park",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.5052,
+      "longitude": -97.8203
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "166",
+      "bestRating": "5"
+    },
+    "priceRange": "$$",
+    "areaServed": [
+      "Cedar Park, TX",
+      "Leander, TX",
+      "Round Rock, TX",
+      "Georgetown, TX",
+      "Austin, TX",
+      "Pflugerville, TX",
+      "Hutto, TX",
+      "Liberty Hill, TX"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wood Fence Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gate Installation & Repair"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Furniture & Built-Ins"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Deck & Porch Repairs"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Handyman Services"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Door Installation & Repair"}}
+      ]
+    },
+    "sameAs": [
+      "https://www.thumbtack.com/tx/cedar-park/handyman/handyman-service-fokins-llc/service/525414248132755469",
+      "https://instagram.com/fokinsllc"
+    ]
+  }
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/services.html" />
+  <meta property="og:title" content="Services & Pricing — Fokins Custom Woodwork | Cedar Park TX" />
+  <meta property="og:description" content="Cedar fences average ~$3,500, custom furniture, decks, gates from $400, doors from $260, handyman $95/hr. Free estimates. Cedar Park, Leander, Round Rock, Georgetown TX." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services & Pricing — Fokins Custom Woodwork | Cedar Park TX" />
+  <meta name="twitter:description" content="Cedar fences average ~$3,500, custom furniture, decks, gates from $400, doors from $260, handyman $95/hr. Free estimates. Cedar Park, Leander, Round Rock, Georgetown TX." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <link rel="canonical" href="https://fokinsllc.com/services.html" />
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a>
+  <a href='/services'>🔧 Services</a>
+  <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+  <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+  <a href='/handyman-cedar-park'>🔧 Handyman</a>
+  <a href='/custom-furniture-austin'>🪑 Furniture</a>
+  <a href='/gallery'>📷 Gallery</a>
+  <a href='/about'>👤 About</a>
+  <a href='/faq'>❓ FAQ</a>
+  <a href='/contact'>📬 Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+  <div class="page-hero">
+    <div class="breadcrumb"><a href='/'>Home</a> / Services</div>
+    <h1>Our <em>Services</em></h1>
+    <p>From wood fence installation to handyman repairs — serving Cedar Park, TX and surrounding areas with quality craftsmanship.</p>
+    <div class="badges">
+      <span class="badge">🛡️ Fully Insured</span>
+      <span class="badge">👤 Family-Owned Business</span>
+      <span class="badge">🏆 Top Pro 2025</span>
+      <span class="badge">⭐ 4.9★ Thumbtack</span>
+      <span class="badge">📞 Free Estimates</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- FEATURED: FENCE -->
+  <div class="featured-services">
+    <div class="section-header" style="margin-bottom:2rem;">
+      <span class="section-label">Primary Specialties</span>
+      <h2>Wood Fence & Gate — <em>Our Signature Work</em></h2>
+    </div>
+
+    <div class="featured-card">
+      <div>
+        <span class="fc-badge">Most Requested</span>
+        <span class="fc-icon">🌲</span>
+        <h2>Wood Fence Installation Cedar Park, TX</h2>
+        <p>Gene specializes in custom cedar privacy fences — the most popular choice for Cedar Park and Leander homeowners. Every post is set in concrete, every board is carefully installed, and every fence is built to stand up to Texas summers, storms, and years of use.</p>
+        <p>As the owner, Gene personally designs and crafts all custom woodwork orders. For fence and gate projects, our skilled team ensures every post is set right and every board is carefully installed.</p>
+        <div class="fc-btns">
+          <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+          <a class='btn-ghost' href='/contact'>Get Free Estimate</a>
+        </div>
+      </div>
+      <div>
+        <div class="fc-includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li>Free on-site measurement & estimate</li>
+            <li>Cedar or treated wood — your choice</li>
+            <li>Posts set in concrete for stability</li>
+            <li>Privacy fence, picket, or custom design</li>
+            <li>Gate included if needed</li>
+            <li>Full cleanup when job is done</li>
+            <li>Experienced local team on every job</li>
+          </ul>
+        </div>
+        <div class="fc-price">
+          <div class="price-label">Typical Project Cost</div>
+          <div class="price-val">$2,000 – $5,000</div>
+          <div class="price-note">Depends on linear footage, style & materials.<br>Free written estimate always provided.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-card reverse">
+      <div>
+        <span class="fc-badge">High Demand</span>
+        <span class="fc-icon">🚪</span>
+        <h2>Gate Installation & Repair</h2>
+        <p>From single walk gates to large double drive-through gates — Gene builds and installs them all. Custom-fit to your fence, properly aligned so they open and close smoothly for years. Already have a gate that sags, drags, or doesn't latch right? Gene can repair most gates quickly and affordably.</p>
+        <div class="fc-btns">
+          <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+          <a class='btn-ghost' href='/contact'>Get Free Estimate</a>
+        </div>
+      </div>
+      <div>
+        <div class="fc-includes">
+          <h4>Gate Services Include</h4>
+          <ul>
+            <li>Single walk gates (36"–48")</li>
+            <li>Double drive gates (8'–16'+)</li>
+            <li>Custom-built gates to match your fence</li>
+            <li>Heavy-duty hardware & hinges</li>
+            <li>Gate re-hanging & alignment</li>
+            <li>Latch replacement & adjustments</li>
+            <li>Sagging gate repair</li>
+          </ul>
+        </div>
+        <div class="fc-price">
+          <div class="price-label">Typical Gate Cost</div>
+          <div class="price-val">From $400</div>
+          <div class="price-note">Repairs from $150. Written estimate always provided free.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE SERVICES -->
+  <div class="more-services">
+    <div class="section-header">
+      <span class="section-label">All Services</span>
+      <h2>More Ways <em>Gene Can Help</em></h2>
+      <p>Full-service handyman for Cedar Park, Leander, Round Rock, Georgetown & Austin, TX.</p>
+    </div>
+    <div class="more-grid">
+      <div class="more-card"><span class="mc-icon">🔧</span><h3>Fence Repair</h3><p>Storm damage, broken boards, leaning posts, rotted sections. Matched to your existing fence style.</p><ul><li>Board replacement</li><li>Post repair & replacement</li><li>Storm damage repair</li><li>Section rebuilds</li></ul><div class="mc-price">Section from $350 · Post from $215 · Free Estimate</div></div>
+      <div class="more-card"><span class="mc-icon">🚪</span><h3>Door Installation & Repair</h3><p>Interior and exterior doors installed perfectly. Sticking, drafty, or broken doors repaired. Hardware included.</p><ul><li>Exterior door installation</li><li>Interior door installation</li><li>Door adjustment & planing</li><li>Hinge & hardware replacement</li></ul><div class="mc-price">Install from $260 · Repair from $170</div></div>
+      <div class="more-card"><span class="mc-icon">🏡</span><h3>Deck & Porch Repairs</h3><p>Restore your outdoor living space. Rotted boards replaced, railings secured, structural issues fixed right.</p><ul><li>Deck board replacement</li><li>Railing repair & tightening</li><li>Post repair</li><li>Stair repairs</li></ul><div class="mc-price">Free Estimate · By quote</div></div>
+      <div class="more-card"><span class="mc-icon">🪚</span><h3>Custom Furniture & Built-Ins</h3><p>Live edge tables, built-in shelves, floating shelves, custom cabinetry — designed and crafted to fit your space.</p><ul><li>Live edge dining tables</li><li>Built-in shelving & cabinets</li><li>Floating shelves</li><li>Closet systems</li></ul><div class="mc-price">By quote · Free Consultation</div></div>
+      <div class="more-card"><span class="mc-icon">🧱</span><h3>Drywall, Painting & Remodeling</h3><p>Holes, cracks, water damage repaired. Interior painting done clean. Full remodeling quotes available.</p><ul><li>Hole & crack patching</li><li>Texture matching</li><li>Interior painting</li><li>Kitchen & bathroom remodeling</li></ul><div class="mc-price">$95/hr · Remodeling by quote</div></div>
+      <div class="more-card"><span class="mc-icon">📺</span><h3>TV Mounting & Assembly</h3><p>TV mounted safely on any wall type. Furniture assembly — IKEA, custom pieces, anything.</p><ul><li>TV wall mounting (all sizes)</li><li>Cord concealment</li><li>Furniture assembly</li><li>Shelving assembly</li></ul><div class="mc-price">From $125 · Per item</div></div>
+      <div class="more-card"><span class="mc-icon">🔩</span><h3>Plumbing Repairs</h3><p>Common plumbing fixes done fast and clean. Labor only — you supply the fixture, we install it right.</p><ul><li>Faucet & shower head replacement</li><li>Garbage disposal</li><li>Toilet replacement</li><li>Sink replacement</li></ul><div class="mc-price">From $125 · Sink from $350</div></div>
+      <div class="more-card"><span class="mc-icon">📷</span><h3>Security Cameras & Appliances</h3><p>Security camera installation, microwave replacement, and other appliance installs handled cleanly and professionally.</p><ul><li>Security camera install</li><li>Microwave replacement</li><li>Over-the-range & built-in</li><li>General appliance install</li></ul><div class="mc-price">Cameras from $125 · Microwave from $215</div></div>
+    </div>
+  </div>
+
+  <!-- PRICING TABLE -->
+  <div class="pricing-section">
+    <h2>Quick Pricing Reference</h2>
+    <p>All prices include labor. Materials noted separately. Free written estimate always provided before work begins.</p>
+
+    <!-- CUSTOM WOODWORK & REMODELING -->
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cedar);margin:1.5rem 0 0.5rem;">🪚 Custom Woodwork & Remodeling</p>
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Custom furniture & built-ins</td><td>By quote</td><td>Tables, shelves, cabinets — unique pieces made to order</td></tr>
+        <tr><td>Custom structures (decks, pergolas, gazebos)</td><td>By quote</td><td>Free on-site estimate · Cedar Park & Greater Austin</td></tr>
+        <tr><td>Remodeling</td><td>By quote</td><td>Kitchen, bathroom, interior — contact for consultation</td></tr>
+      </tbody>
+    </table>
+
+    <!-- FENCES & GATES -->
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cedar);margin:1.5rem 0 0.5rem;">🌲 Fences & Gates</p>
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Fence section replacement</td><td>From $350</td><td>All materials included</td></tr>
+        <tr><td>Post replacement</td><td>From $215</td><td>All materials included</td></tr>
+        <tr><td>Gate installation (new)</td><td>From $400</td><td>All materials included</td></tr>
+        <tr><td>Gate repair / adjustment</td><td>From $170</td><td>Alignment, hardware, sagging</td></tr>
+        <tr><td>Full fence installation</td><td>Custom quote</td><td>Free on-site estimate · Cedar Park area</td></tr>
+      </tbody>
+    </table>
+
+    <!-- DOORS -->
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cedar);margin:1.5rem 0 0.5rem;">🚪 Doors</p>
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Door installation</td><td>From $260</td><td>Interior or exterior</td></tr>
+        <tr><td>Door repair</td><td>From $170</td><td>Sticking, frame, hardware</td></tr>
+      </tbody>
+    </table>
+
+    <!-- HANDYMAN -->
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cedar);margin:1.5rem 0 0.5rem;">🔨 Handyman Services</p>
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Handyman hourly rate</td><td>$95/hr</td><td>2-hour minimum</td></tr>
+        <tr><td>TV mounting</td><td>From $125</td><td>All wall types</td></tr>
+        <tr><td>Security camera installation</td><td>From $125</td><td>Per camera</td></tr>
+        <tr><td>Microwave replacement</td><td>From $215</td><td>Over-the-range or built-in</td></tr>
+      </tbody>
+    </table>
+
+    <!-- PLUMBING -->
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cedar);margin:1.5rem 0 0.5rem;">🔧 Plumbing Repairs</p>
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Faucet replacement</td><td>From $125</td><td>Labor only · customer supplies fixture</td></tr>
+        <tr><td>Shower head replacement</td><td>From $125</td><td>Labor only</td></tr>
+        <tr><td>Garbage disposal replacement</td><td>From $170</td><td>Labor only</td></tr>
+        <tr><td>Toilet replacement</td><td>From $215</td><td>Labor only</td></tr>
+        <tr><td>Sink replacement</td><td>From $350</td><td>Labor only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SERVICE AREA -->
+  <div class="area-section">
+    <div class="section-header">
+      <span class="section-label">Service Area</span>
+      <h2>Serving Cedar Park & <em>Surrounding Areas</em></h2>
+    </div>
+    <div class="area-tags">
+      <span class="area-tag primary">📍 Cedar Park, TX</span>
+      <span class="area-tag">Leander, TX</span>
+      <span class="area-tag">Round Rock, TX</span>
+      <span class="area-tag">Georgetown, TX</span>
+      <span class="area-tag">Austin, TX</span>
+      <span class="area-tag">Pflugerville, TX</span>
+      <span class="area-tag">Hutto, TX</span>
+      <span class="area-tag">Liberty Hill, TX</span>
+    </div>
+  </div>
+</main>
+
+<div class="cta-banner">
+  <h2>Get a Free Estimate Today</h2>
+  <p>Call Gene or fill out our form. Same-day response, 7 days a week.</p>
+  <div class="btn-row">
+    <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+    <a class='btn-white' href='/contact'>Online Estimate Form →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'services.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+<script src="shared.js"></script>
+</body>
+</html>

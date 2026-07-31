@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Gene Fokins — Fokins Custom Woodwork · Cedar Park TX</title>
+  <meta name="description" content="Meet Gennadii (Gene) Fokins — Cedar Park's most trusted handyman & fence contractor. Owner-operated, 4.9★ Thumbtack, 5.0★ Google. (737) 400-1230.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+    /* INTRO */
+    .about-intro { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+    .about-photo {
+      aspect-ratio: 3/4; background: linear-gradient(135deg, #2D1B0E, #1A1208);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; color: rgba(255,255,255,0.3); overflow: hidden;
+      box-shadow: 0 16px 48px rgba(139,69,19,0.2);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+    .stat-inline { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: var(--dark); padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .about-intro h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); margin-bottom: 0.25rem; }
+    .about-intro h2 span { color: var(--cedar); }
+    .about-intro .subtitle { color: var(--muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .about-intro p { color: var(--text); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem; }
+    .about-intro p:last-of-type { color: var(--muted); font-style: italic; }
+    .about-facts { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .about-facts li { font-size: 0.875rem; color: var(--text); display: flex; align-items: center; gap: 0.6rem; }
+    .about-facts li::before { content: '✓'; color: var(--cedar); font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 768px) { .about-intro { grid-template-columns: 1fr; gap: 2rem; } .about-photo { aspect-ratio: 4/3; max-width: 300px; } }
+
+    /* COMPARE */
+    .compare-section { background: #F5EFE8; border-radius: 20px; padding: 3rem; margin-bottom: 5rem; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .compare-card { background: #fff; border-radius: 14px; padding: 2rem; }
+    .compare-card.good { border-top: 4px solid #22c55e; }
+    .compare-card.bad { border-top: 4px solid #ef4444; opacity: 0.85; }
+    .compare-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .compare-card.good h3 { color: #16a34a; }
+    .compare-card.bad h3 { color: #dc2626; }
+    .compare-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .compare-card.good ul li { font-size: 0.875rem; color: var(--text); display: flex; gap: 0.5rem; }
+    .compare-card.good ul li::before { content: '✅'; flex-shrink: 0; }
+    .compare-card.bad ul li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.5rem; }
+    .compare-card.bad ul li::before { content: '❌'; flex-shrink: 0; }
+    @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+    /* RATINGS */
+    .ratings-section { margin-bottom: 5rem; text-align: center; }
+    .ratings-row { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+    .rating-pill { background: #fff; border-radius: 12px; padding: 1.25rem 2rem; box-shadow: 0 2px 12px rgba(139,69,19,0.08); border: 1px solid #EDE4D8; text-align: center; }
+    .rp-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--cedar); }
+    .rp-stars { color: #F5A623; font-size: 0.9rem; margin: 0.15rem 0; }
+    .rp-source { font-size: 0.78rem; color: var(--muted); }
+
+    /* REVIEWS */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .review-card { background: #fff; border-radius: 14px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(139,69,19,0.06); border: 1px solid #EDE4D8; }
+    .rv-stars { color: #F5A623; font-size: 1rem; margin-bottom: 0.75rem; }
+    .rv-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+    .rv-author { font-size: 0.82rem; font-weight: 600; color: var(--cedar); }
+    .rv-meta { font-size: 0.78rem; color: var(--muted); }
+    @media (max-width: 900px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .reviews-grid { grid-template-columns: 1fr; } }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/about.html" />
+  <meta property="og:title" content="Meet Gene Fokins — Cedar Park's Most Trusted Contractor" />
+  <meta property="og:description" content="Meet Gennadii (Gene) Fokins — Cedar Park's most trusted handyman & fence contractor. Owner-operated, 4.9★ Thumbtack, 5.0★ Google. (737) 400-1230." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meet Gene Fokins — Cedar Park's Most Trusted Contractor" />
+  <meta name="twitter:description" content="Meet Gennadii (Gene) Fokins — Cedar Park's most trusted handyman & fence contractor. Owner-operated, 4.9★ Thumbtack, 5.0★ Google. (737) 400-1230." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <link rel="canonical" href="https://fokinsllc.com/about.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fokins Custom Woodwork",
+    "telephone": "+17374001230",
+    "url": "https://fokinsllc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Park",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "166"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a>
+  <a href='/services'>🔧 Services</a>
+  <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+  <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+  <a href='/handyman-cedar-park'>🔧 Handyman</a>
+  <a href='/custom-furniture-austin'>🪑 Furniture</a>
+  <a href='/gallery'>📷 Gallery</a>
+  <a href='/about'>👤 About</a>
+  <a href='/faq'>❓ FAQ</a>
+  <a href='/contact'>📬 Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+  <div class="page-hero">
+    <div class="breadcrumb"><a href='/'>Home</a> / About</div>
+    <h1>Meet <em>Gene Fokins</em></h1>
+    <p>Cedar Park's most trusted handyman & fence contractor — owner-operated since day one.</p>
+  </div>
+</div>
+
+<main>
+  <!-- INTRO -->
+  <div class="about-intro">
+    <div class="about-photo">
+      <img src="photos/wood-shiplap-shelves-bar.webp" alt="Gene Fokins — owner of Fokins Custom Woodwork" onerror="this.style.display='none';this.parentElement.innerHTML='👤';">
+    </div>
+    <div>
+      <div class="stat-inline">177 Jobs Hired · 166 Reviews</div>
+      <div class="subtitle">The Owner</div>
+      <h2>Gennadii <span>(Gene)</span> Fokin</h2>
+      <p style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1rem;">"Fokins" — that's all of us. My grandfather, my father, and me.</p>
+
+      <p>My grandfather made furniture by hand. He had his own lathe — chairs, tables, candlesticks, cabinets. When I was a boy, he built me a computer desk. That desk lasted 30 years. Someone still has it today, because when real craftsmanship goes into wood, it doesn't just hold up — it becomes part of a family.</p>
+
+      <p>I grew up at his workshop, watching him work, breathing in the smell of fresh cedar and sawdust. Wood wasn't just a material to me — it was how my grandfather expressed love. My father worked the same way, but in construction: plumbing, heating systems, large-scale builds — apartment towers, hospitals, schools, cottages. From him I learned how structures come together, how materials behave, how to solve problems that matter.</p>
+
+      <p>I carried both of them with me when I moved to Texas and started Fokins Custom Woodwork. The name isn't just a business name — it's a tribute to my father and grandfather, both of whom are no longer with me. Every fence I build, every piece of custom wood I shape, carries something of theirs in it.</p>
+
+      <p>But I brought something of my own too. Beyond construction, my life has taken me through business coaching, life coaching, and deep study of human psychology and conflict resolution. I've learned that most problems — whether in a building or between people — come down to the same thing: someone not feeling heard. So when you call me, you don't just get a contractor. You get someone who listens, who solves problems, and who genuinely wants to become a trusted friend to every client I work with.</p>
+
+      <p style="font-style:italic;color:var(--muted);">That's what Fokins Custom Woodwork is built on. Not just skill — but trust, care, and a family legacy of doing things right.</p>
+
+      <ul class="about-facts">
+        <li>3rd-generation craftsman — grandfather's lathe, father's blueprint</li>
+        <li>Gene personally handles all custom woodwork & craft orders</li>
+        <li>Business coach & conflict resolution background</li>
+        <li>Thumbtack Top Pro 2025 · 4.9★ · 166 reviews</li>
+        <li>5.0★ Google · 83 Reviews · 5.0★ Yelp</li>
+        <li>Available 7 days a week, 8 AM – 8 PM</li>
+      </ul>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">📞 Call Gene Directly</a>
+        <a class='btn-ghost' href='/contact'>Get Free Estimate</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="compare-section">
+    <div class="section-header" style="margin-bottom:0;">
+      <span class="section-label">Why It Matters</span>
+      <h2>Why Owner-Operated Makes <em>All the Difference</em></h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card good">
+        <h3>✅ With Fokins Custom Woodwork</h3>
+        <ul>
+          <li>You meet & speak to the person doing the work</li>
+          <li>The same level of care from start to finish</li>
+          <li>No confusion about what was agreed</li>
+          <li>Owner accountable for every detail</li>
+          <li>Craftsman pride in every board and post</li>
+          <li>You can call or text Gene anytime</li>
+        </ul>
+      </div>
+      <div class="compare-card bad">
+        <h3>❌ With Large Contractors</h3>
+        <ul>
+          <li>A crew of strangers you've never met</li>
+          <li>Subcontractors who don't know your project</li>
+          <li>Owner never on site — unreachable</li>
+          <li>Rushing through jobs to fit the schedule</li>
+          <li>Complaints get lost in the system</li>
+          <li>No accountability after the job is done</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATINGS -->
+  <div class="ratings-section">
+    <div class="section-header">
+      <span class="section-label">By The Numbers</span>
+      <h2>Cedar Park's Most <em>Trusted Contractor</em></h2>
+    </div>
+    <div class="ratings-row">
+      <div class="rating-pill"><div class="rp-num">4.9★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Thumbtack · 166 Reviews</div></div>
+      <div class="rating-pill"><div class="rp-num">5.0★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Google · 83 Reviews</div></div>
+      <div class="rating-pill"><div class="rp-num">5.0★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Yelp</div></div>
+      <div class="rating-pill"><div class="rp-num">🏆</div><div class="rp-stars" style="color:var(--gold);">TOP PRO</div><div class="rp-source">Thumbtack 2025</div></div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div style="margin-bottom:3rem;">
+    <div class="section-header">
+      <span class="section-label">Homeowner Reviews</span>
+      <h2>What People <em>Say About Gene</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"I cannot say enough good things about Gene. He showed up on time, walked me through every step of the process, and built a fence that looks incredible."</p><div class="rv-author">Michelle R.</div><div class="rv-meta">Cedar Park, TX · Thumbtack Review</div></div>
+      <div class="review-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"The best part about hiring Gene is that he's the one who actually does the work. He takes pride in what he does and it shows. My new cedar fence is beautiful and built to last."</p><div class="rv-author">Robert L.</div><div class="rv-meta">Leander, TX · Google Review</div></div>
+      <div class="review-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"Gene fixed our sagging gate that two other contractors couldn't get right. Came out same day, diagnosed the problem immediately, fixed it in 90 minutes. Charged a very fair price."</p><div class="rv-author">Amanda W.</div><div class="rv-meta">Round Rock, TX · Thumbtack Review</div></div>
+    </div>
+  </div>
+</main>
+
+<div class="cta-banner">
+  <h2>Ready to Work With Gene?</h2>
+  <p>Call or text directly. Available 7 days a week, 8 AM–8 PM. Free estimates always.</p>
+  <div class="btn-row">
+    <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+    <a class='btn-white' href='/contact'>Send a Message →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+<script src="shared.js"></script>
+</body>
+</html>

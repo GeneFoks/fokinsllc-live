@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ — Fokins Custom Woodwork | Cedar Park, TX</title>
+  <meta name="description" content="Real answers from Gene Fokins — pricing, timelines, permits, materials, and why Cedar Park homeowners keep coming back. (737) 400-1230.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+
+  <style>
+    main { max-width: 820px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .faq-hero { text-align: center; margin-bottom: 4rem; }
+    .faq-hero .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cedar); background: rgba(139,90,43,0.08); padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; }
+    .faq-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--dark); margin-bottom: 1rem; }
+    .faq-hero h1 em { font-style: italic; color: var(--cedar); }
+    .faq-hero p { color: var(--muted); font-size: 1rem; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+    .faq-category { margin-bottom: 3rem; }
+    .faq-category-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cedar); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid rgba(139,90,43,0.15); }
+
+    .faq-item { border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .faq-question { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.25rem 0; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--dark); line-height: 1.4; }
+    .faq-question:hover { color: var(--cedar); }
+    .faq-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(139,90,43,0.1); display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--cedar); transition: transform 0.25s, background 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--cedar); color: #fff; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-answer { max-height: 800px; }
+    .faq-answer-inner { padding: 0 0 1.5rem; color: var(--text); font-size: 0.95rem; line-height: 1.85; }
+    .faq-answer-inner strong { color: var(--dark); font-weight: 600; }
+    .faq-answer-inner ul { margin: 0.75rem 0 0 0; list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .faq-answer-inner ul li::before { content: '✓  '; color: var(--cedar); font-weight: 700; }
+
+    .gene-note { background: #F5EFE8; border-left: 3px solid var(--cedar); border-radius: 0 10px 10px 0; padding: 0.9rem 1.1rem; margin-top: 0.85rem; font-style: italic; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .gene-note strong { font-style: normal; color: var(--cedar); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.3rem; }
+
+    .faq-cta { background: var(--dark); border-radius: 20px; padding: 3rem 2.5rem; text-align: center; margin-top: 4rem; }
+    .faq-cta h2 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .faq-cta p { color: rgba(255,255,255,0.6); margin-bottom: 1.75rem; font-size: 0.95rem; }
+    .faq-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    @media (max-width: 600px) { .faq-cta { padding: 2rem 1.5rem; } }
+  </style>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/faq.html" />
+  <meta property="og:title" content="FAQ — Fokins Custom Woodwork | Cedar Park, TX" />
+  <meta property="og:description" content="Real answers from Gene — pricing, timelines, permits, materials, and why Cedar Park homeowners keep coming back. (737) 400-1230." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ — Fokins Custom Woodwork | Cedar Park, TX" />
+  <meta name="twitter:description" content="Real answers from Gene — pricing, timelines, permits, materials, and why Cedar Park homeowners keep coming back. (737) 400-1230." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <link rel="canonical" href="https://fokinsllc.com/faq.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fokins Custom Woodwork",
+    "telephone": "+17374001230",
+    "url": "https://fokinsllc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Park",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "166"
+    }
+  }
+  </script>
+  <!-- FAQ SCHEMA — AEO / Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a wood fence cost in Cedar Park?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The average full fence installation in Cedar Park runs around $3,500 — that includes cedar boards, posts, concrete, hardware, and cleanup. The final number depends on your linear footage, whether an old fence needs to be removed, and obstacles like trees or slopes along the fence line. Gene gives a written estimate after seeing the property in person."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can I get an estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We schedule on-site estimates within 24 hours of your first contact. Call or text (737) 400-1230 or fill out the contact form, and Gene responds the same day, 7 days a week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the estimate really free? Do I have to commit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is 100% free with zero pressure. Gene visits, measures, answers your questions, and hands you a written estimate. No deposit is required to schedule and there is no obligation to proceed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Someone offered me a lower price. Why choose Fokins?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are often called in to fix fences that were built cheaper by someone else. Shallow posts, the wrong concrete, and boards installed wrong tend to fail within a year or two, usually after the first big Texas storm. We are not the cheapest; we build fences that last and clients who keep coming back."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept any form of payment — cash, check, Zelle, Venmo, or card. A deposit is collected upfront only to cover materials, and the remaining balance is paid after the job is done and you are happy with the result."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does fence installation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most projects are done in 1 to 3 days. The timeline depends on whether we are removing an old fence, breaking out old concrete footings, obstacles along the fence line, and the total linear footage and terrain. Gene gives an accurate timeline during the estimate visit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you remove the old fence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — we handle old fence removal, including breaking out old concrete footings if needed. It is priced separately from the new installation. Just mention it when you request an estimate and we will include it in the quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you clean up when the job is done?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Always. We haul away all scrap wood, old fence boards, concrete debris, and packaging, and we leave your yard the way we found it — clean, with a new fence in it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will Gene be on-site, or does he send a crew?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gene personally oversees every project from start to finish and is present at every key stage. For custom woodwork such as furniture, built-ins, and accent walls, Gene does the work himself. For larger fence and construction jobs, his experienced crew works on-site with Gene actively involved throughout."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a permit for a fence in Cedar Park?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per Cedar Park city code, fences up to 8 feet high do not require a building permit, and most residential privacy fences fall well under that limit. Your HOA may have its own rules on height, style, or materials, so it is worth checking before we start. Gene will flag anything unusual during the estimate visit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you call 811 before digging fence posts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every time. We contact 811 (Texas Dig Safe) before any project that involves digging, so underground utility lines are marked and cleared before we start. It is the law and it protects your property."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What wood do you use for fences?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our standard is cedar from Home Depot — it is proven, holds up well in Texas weather, and offers a strong balance of price and quality. If you prefer a different wood, we will build with whatever you choose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How deep do you set fence posts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minimum 2 feet deep, always in concrete. Shallow posts are the number one reason cheap fences fail and start leaning after a year or two, especially after Texas storms. A fence is only as good as what is underground."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer a warranty?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — 6 months warranty on all labor. If something is not right with how the job was done, call Gene and we will make it right. Natural wood weathering over time is not covered, but anything related to the installation is."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Fokins different from other contractors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We build relationships, not just fences. Many customers have been with us for years and call Gene for every project around their home because they trust him to show up, be honest, and do it right."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do clients say most often after the job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common reaction is: How did you do that so fast? We show up when we say we will and finish on schedule, sometimes ahead of it, which sets us apart in an industry known for delays and no-shows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are based in Cedar Park and serve the greater Austin area, including Cedar Park, Leander, Round Rock, Georgetown, Pflugerville, Hutto, Liberty Hill, and Austin. Not sure if you are in range? Just call and Gene will let you know."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'faq.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a>
+  <a href='/services'>🔧 Services</a>
+  <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+  <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+  <a href='/handyman-cedar-park'>🔧 Handyman</a>
+  <a href='/custom-furniture-austin'>🪑 Furniture</a>
+  <a href='/gallery'>📷 Gallery</a>
+  <a href='/about'>👤 About</a>
+  <a href='/faq'>❓ FAQ</a>
+  <a href='/contact'>📬 Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'faq.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+<main>
+
+  <div class="faq-hero">
+    <span class="section-label">Real Answers</span>
+    <h1>Questions We Get <em>All the Time</em></h1>
+    <p>Straight answers from Gene — no fluff. If your question isn't here, just call or text and he'll pick up.</p>
+  </div>
+
+  <!-- PRICING -->
+  <div class="faq-category">
+    <div class="faq-category-title">💰 Pricing & Estimates</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How much does a wood fence cost?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          The average full fence installation in Cedar Park runs around <strong>$3,500</strong> — that includes cedar boards, posts, concrete, hardware, and cleanup. The final number depends on your linear footage, whether we need to remove an old fence, and any obstacles like trees or slopes along the fence line.
+          <div class="gene-note">
+            <strong>Gene says</strong>
+            "I always give a written estimate after seeing the property in person. I don't do ballpark numbers over the phone — I want you to know exactly what you're paying before anything starts."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How fast can I get an estimate?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          We schedule on-site estimates <strong>within 24 hours</strong> of your first contact. Call or text Gene at (737) 400-1230 or fill out the form on our contact page — he responds the same day, 7 days a week.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is the estimate really free? Do I have to commit?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          100% free, zero pressure. Gene visits, measures, answers your questions, and hands you a written estimate. No deposit required to schedule, no obligation to proceed.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Someone offered me a lower price. Why choose Fokins?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          That's the most common thing we hear — and it's a fair question. But we've also been called in more times than we can count to <strong>fix fences that were built cheaper by someone else.</strong> Shallow posts, wrong concrete, boards installed wrong — it all fails within a year or two, usually after the first big Texas storm.
+          <div class="gene-note">
+            <strong>Gene says</strong>
+            "I'm not trying to be the cheapest. I'm trying to be the guy you call back in 3 years — not to fix something, but because you want a deck or a gate. Some of my clients have been with me for 3 years and they always come back. That's what I'm building toward."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What payment methods do you accept?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          We accept any form of payment — cash, check, Zelle, Venmo, or card. A deposit is collected upfront only to cover materials. The remaining balance is paid <strong>after the job is done</strong> and you're happy with the result.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="faq-category">
+    <div class="faq-category-title">📋 Process & Timeline</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long does fence installation take?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Most projects are done in <strong>1 to 3 days</strong>. The timeline depends on:
+          <ul>
+            <li>Whether we're removing an old fence (extra time and cost)</li>
+            <li>Old concrete footings that need to be broken out</li>
+            <li>Trees, sheds, or other obstacles along the fence line</li>
+            <li>Total linear footage and terrain</li>
+          </ul>
+          Gene will give you an accurate timeline during the estimate visit — no vague "a few days" answers.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you remove the old fence?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Yes — we handle old fence removal, including breaking out old concrete footings if needed. It's priced separately from the new installation. Just mention it when you request an estimate and we'll include it in the quote.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you clean up when the job is done?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Always. We haul away all scrap wood, old fence boards, concrete debris, and packaging. <strong>We leave your yard the way we found it</strong> — clean, with a new fence in it.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Will Gene be on-site, or does he send a crew?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Gene personally oversees every project from start to finish — he's present at every key stage and steps in wherever needed. For custom woodwork (furniture, built-ins, accent walls), Gene does it himself. For larger fence and construction jobs, his experienced crew works on-site with Gene actively involved throughout.
+          <div class="gene-note">
+            <strong>Gene says</strong>
+            "I'm not the guy who shows up for the estimate and then disappears. I'm on every project. My name is on every fence we build."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERMITS -->
+  <div class="faq-category">
+    <div class="faq-category-title">📄 Permits & Regulations</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do I need a permit for a fence in Cedar Park?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Per Cedar Park city code, <strong>fences up to 8 feet high do not require a building permit.</strong> Most residential privacy fences fall well under that limit. That said, your HOA may have its own rules around fence height, style, or materials — it's worth a quick check before we start. Gene will flag anything unusual during the estimate visit.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you call 811 before digging posts?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Every single time. We contact <strong>811 (Texas Dig Safe)</strong> before any project that involves digging. Underground utility lines are marked and cleared before we start. This isn't optional — it's the law, and it protects your property.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATERIALS -->
+  <div class="faq-category">
+    <div class="faq-category-title">🌲 Materials & Quality</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What wood do you use for fences?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Our standard is <strong>cedar from Home Depot</strong> — it's proven, holds up well in Texas weather, and sits in the sweet spot of price and quality. It's what we'd use on our own homes. That said, if you want a different wood, we'll build with whatever you prefer. Your project, your call.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How deep do you set fence posts?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Minimum <strong>2 feet deep, always in concrete.</strong> Shallow posts are the #1 reason cheap fences fail — they start leaning after a year or two, especially after Texas storms. We don't cut corners here. A fence is only as good as what's underground.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you offer a warranty?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Yes — <strong>6 months warranty on all labor.</strong> If something isn't right with how the job was done, call Gene and we'll make it right. Natural wood weathering over time isn't covered (that's just Texas), but anything related to the installation — we stand behind it.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="faq-category">
+    <div class="faq-category-title">👤 About Fokins Custom Woodwork</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What makes Fokins different from other contractors?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          We build relationships, not just fences. Some of our customers have been with us for 3 years — they call Gene for every project around their home because they trust that he'll show up, be honest, and do it right.
+          <div class="gene-note">
+            <strong>Gene says</strong>
+            "It's not about how many clients I have. It's about trust. I'd rather have 10 people who know me by name than 100 who can't remember who built their fence."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What do clients say most often after the job?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <em style="font-size:1.05rem;">"How did you do that so fast?"</em>
+          <br><br>
+          That's the one Gene hears the most. We show up when we say we will and finish on schedule — sometimes ahead of it. In an industry known for delays and no-shows, that alone sets us apart.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What areas do you serve?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          We're based in Cedar Park and serve the greater Austin area including:
+          <ul>
+            <li>Cedar Park</li>
+            <li>Leander</li>
+            <li>Round Rock</li>
+            <li>Georgetown</li>
+            <li>Pflugerville</li>
+            <li>Hutto</li>
+            <li>Liberty Hill</li>
+            <li>Austin</li>
+          </ul>
+          Not sure if you're in range? Just call — Gene will let you know.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-cta">
+    <h2>Still Have Questions?</h2>
+    <p>Call or text Gene directly — 7 days a week, 8 AM to 8 PM. He picks up.</p>
+    <div class="faq-cta-btns">
+      <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'faq.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+      <a class='btn-outline' href='/contact' style='color:#fff;border-color:rgba(255,255,255,0.3);'>Get Free Estimate →</a>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/faq'>FAQ</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'faq.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'faq.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+
+<script src="shared.js"></script>
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

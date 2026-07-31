@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — Fokins Custom Woodwork | Cedar Park Wood Fence & Custom Woodwork</title>
+  <meta name="description" content="See Gene's real work — cedar fences, custom wood slat walls, gates, decks, and handyman projects in Cedar Park, Leander, Austin TX.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero { position:relative; height:100vh; min-height:580px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .hero::after { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(to bottom,rgba(26,18,8,.5) 0%,rgba(26,18,8,.4) 55%,rgba(26,18,8,.75) 100%); }
+    .hero-content { position:relative; z-index:2; text-align:center; padding:0 1.5rem; animation:fadeUp .9s ease both; }
+    .hero-eyebrow { display:inline-block; background:var(--gold); color:var(--dark); font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; border-radius:4px; margin-bottom:1.25rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:700; color:#fff; line-height:1.1; margin-bottom:1rem; text-shadow:0 2px 20px rgba(0,0,0,.4); }
+    .hero h1 em { font-style:italic; color:var(--gold); }
+    .hero-sub { color:rgba(255,255,255,.85); font-size:1.1rem; font-weight:300; max-width:520px; margin:0 auto 2rem; line-height:1.6; }
+    .hero-cta { display:inline-flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .scroll-hint { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:.4rem; color:rgba(255,255,255,.5); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; animation:bounce 2s infinite; }
+    .scroll-hint svg { width:20px; height:20px; }
+
+    .gallery-section { padding:5rem 2rem; max-width:1200px; margin:0 auto; }
+
+    .filter-tabs { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-bottom:3rem; }
+    .filter-btn { padding:.5rem 1.25rem; border-radius:999px; border:1.5px solid var(--border); background:transparent; color:var(--text); font-family:'DM Sans',sans-serif; font-size:.875rem; font-weight:500; cursor:pointer; transition:all .2s; }
+    .filter-btn:hover { border-color:var(--cedar); color:var(--cedar); }
+    .filter-btn.active { background:var(--cedar); border-color:var(--cedar); color:#fff; }
+    .count-label { font-size:.72rem; color:var(--muted); margin-left:.3rem; }
+    .filter-btn.active .count-label { color:rgba(255,255,255,.7); }
+
+    .photo-grid { columns:3 280px; column-gap:1rem; }
+    .photo-card { break-inside:avoid; margin-bottom:1rem; position:relative; border-radius:12px; overflow:hidden; background:#E8DDD0; cursor:pointer; transition:transform .3s,box-shadow .3s; }
+    .photo-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(139,69,19,.2); }
+    .photo-card img { width:100%; height:auto; display:block; transition:transform .5s; }
+    .photo-card:hover img { transform:scale(1.03); }
+    .photo-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(26,18,8,.82) 0%,transparent 55%); opacity:0; transition:opacity .3s; display:flex; flex-direction:column; justify-content:flex-end; padding:1.25rem; }
+    .photo-card:hover .photo-overlay { opacity:1; }
+    .photo-label { color:#fff; font-size:.9rem; font-weight:600; margin-bottom:.15rem; }
+    .photo-cat-tag { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:.35rem; }
+    .cat-badge { position:absolute; top:.75rem; left:.75rem; background:rgba(26,18,8,.75); backdrop-filter:blur(4px); color:#fff; font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.25rem .6rem; border-radius:999px; border:1px solid rgba(255,255,255,.15); }
+    .featured-badge { position:absolute; top:.75rem; right:.75rem; background:var(--gold); color:var(--dark); font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.25rem .6rem; border-radius:999px; }
+
+    .instagram-section { background:var(--dark); padding:4rem 2rem; text-align:center; }
+    .instagram-section h3 { font-family:'Playfair Display',serif; color:#fff; font-size:1.75rem; margin-bottom:.5rem; }
+    .instagram-section p { color:rgba(255,255,255,.6); font-size:.95rem; margin-bottom:2rem; }
+    .ig-link { display:inline-flex; align-items:center; gap:.6rem; background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; text-decoration:none; padding:.85rem 2rem; border-radius:10px; font-weight:600; font-size:1rem; transition:opacity .2s,transform .15s; }
+    .ig-link:hover { opacity:.9; transform:translateY(-2px); }
+    .ig-link svg { width:22px; height:22px; }
+
+    .lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.93); align-items:center; justify-content:center; padding:1.5rem; flex-direction:column; gap:1rem; }
+    .lightbox.open { display:flex; }
+    .lightbox-img-wrap { position:relative; max-width:90vw; max-height:82vh; }
+    .lightbox img { max-width:90vw; max-height:82vh; border-radius:8px; object-fit:contain; display:block; }
+    .lightbox-close { position:absolute; top:-2.5rem; right:0; background:none; border:none; cursor:pointer; color:#fff; font-size:1.75rem; line-height:1; }
+    .lightbox-info { text-align:center; }
+    .lightbox-label { color:#fff; font-size:1rem; font-weight:600; }
+    .lightbox-cat { color:var(--gold); font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-top:.2rem; }
+    .lightbox-nav { display:flex; gap:1rem; position:absolute; top:50%; transform:translateY(-50%); width:calc(100% + 5rem); left:-2.5rem; justify-content:space-between; pointer-events:none; }
+    .lb-btn { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:#fff; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; pointer-events:all; transition:background .2s; font-size:1.1rem; }
+    .lb-btn:hover { background:rgba(255,255,255,.25); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+    @media(max-width:768px){.photo-grid{columns:2 150px;}}
+    @media(max-width:420px){.photo-grid{columns:1;}}
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/gallery.html" />
+  <meta property="og:title" content="Gallery — Fokins Custom Woodwork | Cedar Park Wood Fence & Custom Woodwork" />
+  <meta property="og:description" content="See Gene's real work — cedar fences, custom wood slat walls, gates, decks, and handyman projects in Cedar Park, Leander, Austin TX." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/wood-slat-wall-natural-tv.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery — Fokins Custom Woodwork | Cedar Park Wood Fence & Custom Woodwork" />
+  <meta name="twitter:description" content="See Gene's real work — cedar fences, custom wood slat walls, gates, decks, and handyman projects in Cedar Park, Leander, Austin TX." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/wood-slat-wall-natural-tv.webp" />
+  <link rel="canonical" href="https://fokinsllc.com/gallery.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fokins Custom Woodwork",
+    "telephone": "+17374001230",
+    "url": "https://fokinsllc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Park",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "166"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>🪵 Fences</a>
+        <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+        <a href='/handyman-cedar-park'>🔧 Handyman</a>
+        <a href='/custom-furniture-austin'>🪑 Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'gallery.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>🏠 Home</a><a href='/services'>🔧 Services</a>
+  <a href='/wood-deck-cedar-park'>🪵 Decks</a>
+  <a href='/wood-fence-cedar-park'>🪵 Fences</a><a href='/gallery'>📷 Gallery</a><a href='/about'>👤 About</a><a href='/faq'>❓ FAQ</a>
+  <a href='/contact'>📬 Contact</a><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'gallery.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+</div>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <span class="hero-eyebrow">🏆 Top Pro 2025 · Cedar Park, TX</span>
+    <h1>Real Work.<br><em>Real Craftsmanship.</em></h1>
+    <p class="hero-sub">Real work, real craftsmanship — cedar fences, custom woodwork, and expert handyman services across Cedar Park, TX.</p>
+    <div class="hero-cta">
+      <a class='btn-primary' href='/contact'>Get Free Estimate</a>
+      <a href="#photos" class="btn-white">See the Work ↓</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>scroll</div>
+</section>
+
+<section class="gallery-section" id="photos">
+  <div class="section-header">
+    <span class="section-label">Portfolio</span>
+    <h2>Work Done <em>Right</em></h2>
+    <p>Real projects completed by Gene in Cedar Park, Leander, Round Rock, and Austin, TX</p>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">All Work <span class="count-label" id="count-all"></span></button>
+    <button class="filter-btn" onclick="filterGallery('fence',this)">🌲 Fences <span class="count-label" id="count-fence"></span></button>
+    <button class="filter-btn" onclick="filterGallery('gate',this)">🚪 Gates <span class="count-label" id="count-gate"></span></button>
+    <button class="filter-btn" onclick="filterGallery('wood',this)">🪚 Custom Wood <span class="count-label" id="count-wood"></span></button>
+    <button class="filter-btn" onclick="filterGallery('deck',this)">🏡 Deck & Outdoor <span class="count-label" id="count-deck"></span></button>
+    <button class="filter-btn" onclick="filterGallery('handyman',this)">🔨 Handyman <span class="count-label" id="count-handyman"></span></button>
+    <button class="filter-btn" onclick="filterGallery('special',this)">⭐ Special <span class="count-label" id="count-special"></span></button>
+  </div>
+
+  <div class="photo-grid" id="photoGrid">
+
+    <div class="photo-card" data-category="fence" data-label="New Cedar Privacy Fence" onclick="openLightbox(this)">
+      <img src="photos/fence-cedar-privacy-01.webp" alt="New cedar privacy fence installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">New Cedar Privacy Fence</span></div>
+    </div>
+
+    <div class="photo-card" data-category="fence" data-label="Modern Horizontal Privacy Screen" onclick="openLightbox(this)">
+      <img src="photos/fence-horizontal-dark-modern.webp" alt="Modern dark horizontal slat privacy fence Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">Modern Horizontal Privacy Screen</span></div>
+    </div>
+
+    <div class="photo-card" data-category="gate" data-label="Double Wood Gate Installation" onclick="openLightbox(this)">
+      <img src="photos/gate-wood-double-picket.webp" alt="Double wood gate installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Gate</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Gate</span><span class="photo-label">Double Wood Gate Installation</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Custom Pergola Arch — Casa 1018" onclick="openLightbox(this)">
+      <img src="photos/wood-pergola-arch-custom.webp" alt="Custom wood pergola arch Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Custom Pergola Arch — "Casa 1018"</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Natural Wood Slat Accent Wall + TV" onclick="openLightbox(this)">
+      <img src="photos/wood-slat-wall-natural-tv.webp" alt="Natural wood slat accent wall with TV mount" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Natural Wood Slat Wall + TV Mount</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Black Wood Slat Accent Wall" onclick="openLightbox(this)">
+      <img src="photos/wood-slat-wall-black.webp" alt="Black wood slat accent wall installation" loading="lazy">
+      <span class="cat-badge">Custom Wood</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Black Wood Slat Accent Wall</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Bathroom Cabinet & Floating Shelves" onclick="openLightbox(this)">
+      <img src="photos/wood-bathroom-cabinet-shelves.webp" alt="Custom wood bathroom cabinet and floating shelves" loading="lazy">
+      <span class="cat-badge">Custom Wood</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Bathroom Cabinet & Floating Shelves</span></div>
+    </div>
+
+    <div class="photo-card" data-category="deck" data-label="Composite Deck Replacement — Before & After" onclick="openLightbox(this)">
+      <img src="photos/deck-composite-before-after.webp" alt="Composite deck board replacement before and after Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck</span><span class="featured-badge">Before & After</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck</span><span class="photo-label">Composite Deck Replacement</span></div>
+    </div>
+
+    <div class="photo-card" data-category="deck" data-label="Louvered Patio Pergola Installation" onclick="openLightbox(this)">
+      <img src="photos/deck-pergola-louvered.webp" alt="Louvered pergola patio cover installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck & Outdoor</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Louvered Patio Pergola</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Walk-In Closet Assembly" onclick="openLightbox(this)">
+      <img src="photos/handyman-closet-assembly.webp" alt="Walk-in closet shelving assembly Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Walk-In Closet Assembly</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Interior Accent Wall Painting" onclick="openLightbox(this)">
+      <img src="photos/handyman-accent-wall-painting.webp" alt="Interior accent wall painting Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Interior Accent Wall Painting</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Kids Play Area — Mulch & Border" onclick="openLightbox(this)">
+      <img src="photos/handyman-kids-play-area.webp" alt="Kids play area mulch installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Kids Play Area — Mulch & Border</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Commercial Flooring — Before" onclick="openLightbox(this)">
+      <img src="photos/handyman-carpet-install-before.webp" alt="Commercial carpet tile installation before" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Commercial Flooring — Before</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Commercial Flooring — After" onclick="openLightbox(this)">
+      <img src="photos/handyman-carpet-install-after.webp" alt="Commercial carpet tile installation after" loading="lazy">
+      <span class="cat-badge">Handyman</span><span class="featured-badge">After ✓</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Commercial Flooring — After</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Entertainment Center Assembly" onclick="openLightbox(this)">
+      <img src="photos/handyman-furniture-assembly.webp" alt="Entertainment center with fireplace assembly" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Entertainment Center Assembly</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Appliance Installation — Microwave/Oven" onclick="openLightbox(this)">
+      <img src="photos/handyman-appliance-install.webp" alt="Microwave and oven appliance installation" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Appliance Installation</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Door Frame & Lock Repair" onclick="openLightbox(this)">
+      <img src="photos/handyman-door-repair.webp" alt="Door frame and lock repair Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Door Frame & Lock Repair</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="TV Mount Above Fireplace" onclick="openLightbox(this)">
+      <img src="photos/handyman-tv-mount-fireplace.webp" alt="TV mounting above fireplace Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">TV Mount Above Fireplace</span></div>
+    </div>
+
+    <div class="photo-card" data-category="special" data-label="Pickleball Court — Aerial View" onclick="openLightbox(this)">
+      <img src="photos/pickleball-court-aerial.webp" alt="Pickleball court painting aerial view Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Special</span><span class="featured-badge">★ Unique</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Pickleball Court — Aerial View</span></div>
+    </div>
+
+    <div class="photo-card" data-category="special" data-label="Pickleball Court — Line Painting" onclick="openLightbox(this)">
+      <img src="photos/pickleball-court-painting.webp" alt="Pickleball court line painting Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Special</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Pickleball Court — Line Painting</span></div>
+    </div>
+
+    <!-- ── NEW BATCH ── -->
+
+    <div class="photo-card" data-category="wood" data-label="Live Edge Cedar Dining Table" onclick="openLightbox(this)">
+      <img src="photos/wood-live-edge-cedar-table.webp" alt="Custom live edge cedar dining table Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Live Edge Cedar Dining Table</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Barn Style Sliding Closet Doors" onclick="openLightbox(this)">
+      <img src="photos/wood-barn-sliding-doors.webp" alt="Custom barn style sliding closet doors Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Barn Style Sliding Closet Doors</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Shiplap Wall + Floating Shelves — Bar Area" onclick="openLightbox(this)">
+      <img src="photos/wood-shiplap-shelves-bar.webp" alt="Shiplap accent wall with floating LED shelves bar area" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Featured</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Shiplap Wall + Floating LED Shelves</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Cedar Stair Treads Replacement" onclick="openLightbox(this)">
+      <img src="photos/wood-stair-treads-replacement.webp" alt="Cedar stair treads replacement repair Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">Before & After</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Cedar Stair Treads — Before & After</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Wood Slat Panel + TV Mount" onclick="openLightbox(this)">
+      <img src="photos/wood-slat-panel-tv-02.webp" alt="Wood slat panel TV mount living room Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Wood Slat Panel + TV Mount</span></div>
+    </div>
+
+    <div class="photo-card" data-category="deck" data-label="Pergola Build — Structural Test 💪" onclick="openLightbox(this)">
+      <img src="photos/deck-pergola-gene-test.webp" alt="Custom pergola backyard build Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck & Outdoor</span><span class="featured-badge">Gene-Approved ✓</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Custom Pergola — Gene-Approved 💪</span></div>
+    </div>
+
+    <div class="photo-card" data-category="deck" data-label="Composite Deck Stairs with Railings" onclick="openLightbox(this)">
+      <img src="photos/deck-composite-stairs.webp" alt="Composite deck stairs with white railings Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck & Outdoor</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Composite Deck Stairs & Railings</span></div>
+    </div>
+
+    <div class="photo-card" data-category="special" data-label="Outdoor Sauna Installation" onclick="openLightbox(this)">
+      <img src="photos/special-outdoor-sauna.webp" alt="Outdoor sauna installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Special</span><span class="featured-badge">★ Unique</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Outdoor Sauna Installation</span></div>
+    </div>
+
+    <div class="photo-card" data-category="special" data-label="Smart LED Exterior Lighting" onclick="openLightbox(this)">
+      <img src="photos/special-smart-led-exterior.webp" alt="Smart LED exterior lighting installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Special</span><span class="featured-badge">★ Unique</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Smart LED Exterior Lighting</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Kitchen Cabinet Repainting — Before & After" onclick="openLightbox(this)">
+      <img src="photos/handyman-kitchen-cabinets-repaint.webp" alt="Kitchen cabinet repainting before and after Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span><span class="featured-badge">Before & After</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Kitchen Cabinets Repainted — Before & After</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Bathroom Vanity — Lighting & Mirror" onclick="openLightbox(this)">
+      <img src="photos/handyman-bathroom-vanity-lighting.webp" alt="Bathroom vanity lighting mirror cabinet installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Bathroom Vanity — Lighting & Mirror</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Bathroom Mirror & Floating Shelf" onclick="openLightbox(this)">
+      <img src="photos/handyman-bathroom-mirror-shelf.webp" alt="Bathroom mirror and floating shelf installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Bathroom Mirror & Floating Shelf</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Kitchen Cabinet Hardware Install" onclick="openLightbox(this)">
+      <img src="photos/handyman-kitchen-cabinet-hardware.webp" alt="Kitchen cabinet hardware installation Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Kitchen Cabinet Hardware Install</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Pet Door — Front Door Installation" onclick="openLightbox(this)">
+      <img src="photos/handyman-pet-door-front-door.webp" alt="Pet door installation front door before and after Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span><span class="featured-badge">Before & After</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Pet Door — Front Door Install</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Pet Door — Exterior Wall" onclick="openLightbox(this)">
+      <img src="photos/handyman-pet-door-exterior.webp" alt="Pet door installation exterior wall siding Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Pet Door — Exterior Wall</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Pet Door — Garage Wall" onclick="openLightbox(this)">
+      <img src="photos/handyman-pet-door-garage.webp" alt="Pet door installation garage wall Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Pet Door — Garage Wall</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Pet Door — Interior Wall with Wainscoting" onclick="openLightbox(this)">
+      <img src="photos/handyman-pet-door-wall.webp" alt="Pet door installation interior wall with wainscoting Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Pet Door — Interior Wainscoting Wall</span></div>
+    </div>
+
+    <div class="photo-card" data-category="handyman" data-label="Pet Door — Interior Wall" onclick="openLightbox(this)">
+      <img src="photos/handyman-pet-door-interior.webp" alt="Pet door installation interior wall Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Handyman</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Handyman</span><span class="photo-label">Pet Door — Interior Wall</span></div>
+    </div>
+
+    <div class="photo-card" data-category="deck" data-label="Deck Stairs Staining — Before & After" onclick="openLightbox(this)">
+      <img src="photos/deck-stair-staining-before-after.webp" alt="Deck stairs staining before and after Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck & Outdoor</span><span class="featured-badge">Before & After</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck & Outdoor</span><span class="photo-label">Deck Stairs Staining — Before & After</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Cedar Stair Treads — Detail View" onclick="openLightbox(this)">
+      <img src="photos/wood-stair-treads-view2.webp" alt="Cedar stair treads detail Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Cedar Stair Treads — Detail View</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Wood Turning — Custom Lathe Work" onclick="openLightbox(this)">
+      <img src="photos/wood-lathe-turning.webp" alt="Custom wood turning lathe work Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span><span class="featured-badge">★ Unique</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Wood Turning — Custom Lathe Work</span></div>
+    </div>
+
+    <div class="photo-card" data-category="wood" data-label="Bathroom Floating Shelves — Detail" onclick="openLightbox(this)">
+      <img src="photos/wood-bathroom-shelves-closeup.webp" alt="Custom bathroom floating wood shelves Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Custom Wood</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Bathroom Floating Shelves — Detail</span></div>
+    </div>
+
+    <div class="photo-card" data-category="special" data-label="Outdoor Sauna — Interior View" onclick="openLightbox(this)">
+      <img src="photos/special-sauna-interior.webp" alt="Outdoor sauna interior Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Special</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Outdoor Sauna — Interior View</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="instagram-section">
+  <h3>More on Instagram</h3>
+  <p>Follow <strong>@fokinsllc</strong> to see the latest projects in real time.</p>
+  <a href="https://instagram.com/fokinsllc" target="_blank" rel="noopener" class="ig-link">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @fokinsllc on Instagram
+  </a>
+</div>
+
+<div class="cta-banner">
+  <h2>Like What You See?</h2>
+  <p>Call Gene directly — same-day response, 7 days a week, 8 AM–8 PM.</p>
+  <div class="btn-row">
+    <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'gallery.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+    <a class='btn-white' href='/contact'>Free Estimate Form →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'gallery.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'gallery.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <div class="lightbox-img-wrap">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-nav">
+      <button class="lb-btn" onclick="lightboxNav(-1);event.stopPropagation()">‹</button>
+      <button class="lb-btn" onclick="lightboxNav(1);event.stopPropagation()">›</button>
+    </div>
+  </div>
+  <div class="lightbox-info">
+    <div class="lightbox-label" id="lightboxLabel"></div>
+    <div class="lightbox-cat" id="lightboxCat"></div>
+  </div>
+</div>
+
+<script>
+  let currentFilter='all', visibleCards=[], currentIndex=0;
+
+  function filterGallery(cat,btn){
+    currentFilter=cat;
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.photo-card').forEach(card=>{
+      card.style.display=(cat==='all'||card.dataset.category===cat)?'':'none';
+    });
+  }
+
+  function updateCounts(){
+    const all=document.querySelectorAll('.photo-card');
+    document.getElementById('count-all').textContent='('+all.length+')';
+    ['fence','gate','wood','deck','handyman','special'].forEach(c=>{
+      const n=document.querySelectorAll('.photo-card[data-category="'+c+'"]').length;
+      const el=document.getElementById('count-'+c);
+      if(el) el.textContent=n>0?'('+n+')':'';
+    });
+  }
+  updateCounts();
+
+  function getVisible(){return Array.from(document.querySelectorAll('.photo-card')).filter(c=>c.style.display!=='none');}
+
+  function openLightbox(card){
+    visibleCards=getVisible();
+    currentIndex=visibleCards.indexOf(card);
+    showCard(currentIndex);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+
+  function showCard(i){
+    const card=visibleCards[i];
+    const img=card.querySelector('img');
+    document.getElementById('lightboxImg').src=img.src;
+    document.getElementById('lightboxImg').alt=img.alt;
+    document.getElementById('lightboxLabel').textContent=card.dataset.label||'';
+    document.getElementById('lightboxCat').textContent=(card.dataset.category||'').toUpperCase();
+  }
+
+  function lightboxNav(dir){
+    visibleCards=getVisible();
+    currentIndex=(currentIndex+dir+visibleCards.length)%visibleCards.length;
+    showCard(currentIndex);
+  }
+
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+  function closeLightboxBg(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
+
+  document.addEventListener('keydown',e=>{
+    if(!document.getElementById('lightbox').classList.contains('open'))return;
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowRight')lightboxNav(1);
+    if(e.key==='ArrowLeft')lightboxNav(-1);
+  });
+</script>
+<script src="shared.js"></script>
+</body>
+</html>
