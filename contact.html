@@ -254,14 +254,14 @@
           </div>
         </div>
         <div class="calc-item">
-          <div class="ci-info"><div class="ci-name">Post replacement</div><div class="ci-desc">$215 · All materials included</div></div>
+          <div class="ci-info"><div class="ci-name">Post replacement</div><div class="ci-desc">$250 · All materials included</div></div>
           <div class="ci-right">
             <div class="counter"><button class="counter-btn" onclick="change('fence_post',-1)">−</button><span class="counter-val" id="val-fence_post">0</span><button class="counter-btn" onclick="change('fence_post',1)">+</button></div>
             <div class="ci-price" id="price-fence_post">$0</div>
           </div>
         </div>
         <div class="calc-item">
-          <div class="ci-info"><div class="ci-name">Gate installation (new)</div><div class="ci-desc">$400/gate · All materials included</div></div>
+          <div class="ci-info"><div class="ci-name">Gate installation (new)</div><div class="ci-desc">$440/gate · Standard walk gate · Double/drive by quote</div></div>
           <div class="ci-right">
             <div class="counter"><button class="counter-btn" onclick="change('gate_new',-1)">−</button><span class="counter-val" id="val-gate_new">0</span><button class="counter-btn" onclick="change('gate_new',1)">+</button></div>
             <div class="ci-price" id="price-gate_new">$0</div>
@@ -288,10 +288,17 @@
       <div class="calc-panel" id="tab-handyman">
         <div class="hourly-note">Hourly services · $95/hr · 2-hour minimum</div>
         <div class="calc-item">
-          <div class="ci-info"><div class="ci-name">Door installation or repair</div><div class="ci-desc">$260 · Interior or exterior</div></div>
+          <div class="ci-info"><div class="ci-name">Door install / repair — interior</div><div class="ci-desc">$260 · Interior doors</div></div>
           <div class="ci-right">
             <div class="counter"><button class="counter-btn" onclick="change('door',-1)">−</button><span class="counter-val" id="val-door">0</span><button class="counter-btn" onclick="change('door',1)">+</button></div>
             <div class="ci-price" id="price-door">$0</div>
+          </div>
+        </div>
+        <div class="calc-item">
+          <div class="ci-info"><div class="ci-name">Door install — exterior / entry</div><div class="ci-desc">From $450 · Exterior &amp; entry doors</div></div>
+          <div class="ci-right">
+            <div class="counter"><button class="counter-btn" onclick="change('door_ext',-1)">−</button><span class="counter-val" id="val-door_ext">0</span><button class="counter-btn" onclick="change('door_ext',1)">+</button></div>
+            <div class="ci-price" id="price-door_ext">$0</div>
           </div>
         </div>
         <div class="calc-item">
@@ -427,8 +434,8 @@
 <script>
   // Calculator state
   const prices = {
-    fence_section: 350, fence_post: 215, gate_new: 440, gate_repair: 170,
-    door: 260, tv: 125, drywall: 125, plumbing: 125, general: 125,
+    fence_section: 350, fence_post: 250, gate_new: 440, gate_repair: 170,
+    door: 260, door_ext: 450, tv: 125, drywall: 125, plumbing: 125, general: 125,
     camera: 125
   };
   const counts = { fence_section:0, fence_post:0, gate_new:0, gate_repair:0, door:0, tv:160/80, drywall:0, plumbing:0, general:2, camera:0 };
