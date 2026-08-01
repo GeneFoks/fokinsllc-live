@@ -45,9 +45,9 @@
     .compare-card.bad h3 { color: #dc2626; }
     .compare-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .compare-card.good ul li { font-size: 0.875rem; color: var(--text); display: flex; gap: 0.5rem; }
-    .compare-card.good ul li::before { content: '✅'; flex-shrink: 0; }
+    .compare-card.good ul li::before { content: ''; flex-shrink: 0; }
     .compare-card.bad ul li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.5rem; }
-    .compare-card.bad ul li::before { content: '❌'; flex-shrink: 0; }
+    .compare-card.bad ul li::before { content: ''; flex-shrink: 0; }
     @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
 
     /* RATINGS */
@@ -132,7 +132,7 @@
     <li><a href='/faq'>FAQ</a></li>
     <li><a href='/contact'>Contact</a></li>
   </ul>
-  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="nav-phone">📞 (737) 400-1230</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="nav-phone">(737) 400-1230</a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -146,7 +146,7 @@
   <a href='/about'>About</a>
   <a href='/faq'>FAQ</a>
   <a href='/contact'>Contact</a>
-  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">📞 Call (737) 400-1230</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">Call (737) 400-1230</a>
 </div>
 
 <div style="padding-top:64px;">
@@ -161,7 +161,7 @@
   <!-- INTRO -->
   <div class="about-intro">
     <div class="about-photo">
-      <img src="photos/wood-shiplap-shelves-bar.webp" alt="Gene Fokins — owner of Fokins Custom Woodwork" onerror="this.style.display='none';this.parentElement.innerHTML='👤';">
+      <img src="photos/wood-shiplap-shelves-bar.webp" alt="Gene Fokins — owner of Fokins Custom Woodwork" onerror="this.style.display='none';this.parentElement.innerHTML='';">
     </div>
     <div>
       <div class="stat-inline">177 Jobs Hired · 166 Reviews</div>
@@ -188,7 +188,7 @@
         <li>Available 7 days a week, 8 AM – 8 PM</li>
       </ul>
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-        <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">📞 Call Gene Directly</a>
+        <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">Call Gene Directly</a>
         <a class='btn-ghost' href='/contact'>Get Free Estimate</a>
       </div>
     </div>
@@ -202,7 +202,7 @@
     </div>
     <div class="compare-grid">
       <div class="compare-card good">
-        <h3>✅ With Fokins Custom Woodwork</h3>
+        <h3>With Fokins Custom Woodwork</h3>
         <ul>
           <li>You meet & speak to the person doing the work</li>
           <li>The same level of care from start to finish</li>
@@ -213,7 +213,7 @@
         </ul>
       </div>
       <div class="compare-card bad">
-        <h3>❌ With Large Contractors</h3>
+        <h3>With Large Contractors</h3>
         <ul>
           <li>A crew of strangers you've never met</li>
           <li>Subcontractors who don't know your project</li>
@@ -236,7 +236,7 @@
       <div class="rating-pill"><div class="rp-num">4.9★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Thumbtack · 166 Reviews</div></div>
       <div class="rating-pill"><div class="rp-num">5.0★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Google · 93 Reviews</div></div>
       <div class="rating-pill"><div class="rp-num">5.0★</div><div class="rp-stars">★★★★★</div><div class="rp-source">Yelp</div></div>
-      <div class="rating-pill"><div class="rp-num">🏆</div><div class="rp-stars" style="color:var(--gold);">TOP PRO</div><div class="rp-source">Thumbtack 2025</div></div>
+      <div class="rating-pill"><div class="rp-num"></div><div class="rp-stars" style="color:var(--gold);">TOP PRO</div><div class="rp-source">Thumbtack 2025</div></div>
     </div>
   </div>
 
@@ -258,7 +258,7 @@
   <h2>Ready to Work With Gene?</h2>
   <p>Call or text directly. Available 7 days a week, 8 AM–8 PM. Free estimates always.</p>
   <div class="btn-row">
-    <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">📞 (737) 400-1230</a>
+    <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="btn-primary">(737) 400-1230</a>
     <a class='btn-white' href='/contact'>Send a Message →</a>
   </div>
 </div>
@@ -272,14 +272,14 @@
     <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
     <li><a href='/wood-deck-cedar-park'>Decks</a></li>
     <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/contact'>Contact</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">📞 (737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉️ fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">📷 @fokinsllc</a></li><li><span>📍 Cedar Park, TX</span></li><li><span>🕐 Daily 8 AM – 8 PM</span></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230">(737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">@fokinsllc</a></li><li><span>Cedar Park, TX</span></li><li><span>Daily 8 AM – 8 PM</span></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
-    <span>🏆 Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+    <span>Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
   </div>
 </footer>
-<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="phone-sticky">📞 Call Gene: (737) 400-1230</a>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'about.html'})" href="tel:+17374001230" class="phone-sticky">Call Gene: (737) 400-1230</a>
 <script src="shared.js"></script>
 </body>
 </html>
