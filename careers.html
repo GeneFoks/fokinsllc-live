@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Careers — Join the Fokins Crew | Cedar Park, TX</title>
+  <meta name="description" content="Now hiring in Cedar Park, Leander, Round Rock, Georgetown & Austin, TX. Fence & deck builders, carpenters, handymen, and crew helpers. Steady local work, fair pay. Apply today.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .careers-wrap { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .lead { font-size: 1.05rem; color: var(--text); line-height: 1.7; max-width: 760px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dark); margin: 3rem 0 0.4rem; }
+    .sec-sub { color: var(--muted); margin-bottom: 1.5rem; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .why-card { background: #fff; border: 1px solid #EDE4D8; border-radius: 14px; padding: 1.5rem; }
+    .why-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.4rem; }
+    .why-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    .pos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(285px,1fr)); gap: 1.25rem; }
+    .pos-card { background: #fff; border: 1px solid #EDE4D8; border-radius: 14px; padding: 1.6rem; transition: transform .25s, box-shadow .25s; }
+    .pos-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(139,69,19,.12); }
+    .pos-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cedar); background: var(--cream); border-radius: 20px; padding: 0.22rem 0.75rem; margin-bottom: 0.7rem; }
+    .pos-card h3 { font-family: 'Playfair Display', serif; font-size: 1.18rem; color: var(--dark); margin-bottom: 0.4rem; }
+    .pos-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.8rem; }
+    .pos-card ul { list-style: none; padding: 0; margin: 0; }
+    .pos-card li { font-size: 0.85rem; color: var(--text); padding: 0.22rem 0 0.22rem 1.3rem; position: relative; }
+    .pos-card li:before { content: '✓'; position: absolute; left: 0; color: var(--cedar); font-weight: 700; }
+
+    .look-list { list-style: none; padding: 0; columns: 2; column-gap: 2.5rem; margin-top: 1rem; }
+    @media (max-width: 600px) { .look-list { columns: 1; } }
+    .look-list li { break-inside: avoid; padding: 0.4rem 0 0.4rem 1.6rem; position: relative; color: var(--text); font-size: 0.94rem; }
+    .look-list li:before { content: '✓'; position: absolute; left: 0; color: var(--cedar); font-weight: 700; }
+
+    .apply-box { background: #fff; border: 1px solid #EDE4D8; border-radius: 18px; padding: 2rem; box-shadow: 0 4px 24px rgba(139,69,19,.08); margin-top: 1.5rem; }
+    .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .apply-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 1rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid #D4C4B0; border-radius: 8px;
+      font-size: 0.9rem; font-family: 'DM Sans', sans-serif; color: var(--text); background: #fff; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--cedar); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .submit-btn { width: 100%; padding: 1rem; background: var(--cedar); color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; margin-top: 0.5rem; }
+    .submit-btn:hover { background: var(--cedar-lt); }
+    .apply-direct { text-align: center; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #EDE4D8; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .apply-direct a { color: var(--cedar); font-weight: 700; text-decoration: none; }
+    .success-msg { display: none; text-align: center; padding: 2rem 1rem; }
+    .success-msg.show { display: block; }
+    .success-msg h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--dark); margin: 0 0 0.5rem; }
+    .success-msg p { color: var(--muted); margin-bottom: 1.5rem; }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YY7K5E7P7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YY7K5E7P7');
+  </script>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fokinsllc.com/careers.html" />
+  <meta property="og:title" content="Careers — Join the Fokins Crew | Cedar Park, TX" />
+  <meta property="og:description" content="Now hiring fence & deck builders, carpenters, handymen, and crew helpers in the Austin metro. Steady local work, fair pay. Apply today." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/fence-cedar-privacy-01.webp" />
+  <meta property="og:site_name" content="Fokins Custom Woodwork" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://fokinsllc.com/careers.html" />
+</head>
+<body>
+
+<nav>
+  <a class='nav-logo' href='/'>Fokins <span>Custom Woodwork</span></a>
+    <ul class="nav-links">
+    <li><a href='/'>Home</a></li>
+    <li class="nav-dropdown">
+      <a href='/services'>Services</a>
+      <div class="dropdown-menu">
+        <a href='/wood-fence-cedar-park'>Fences</a>
+        <a href='/wood-deck-cedar-park'>Decks</a>
+        <a href='/handyman-cedar-park'>Handyman</a>
+        <a href='/custom-furniture-austin'>Furniture</a>
+      </div>
+    </li>
+    <li><a href='/gallery'>Gallery</a></li>
+    <li><a href='/faq'>FAQ</a></li>
+    <li><a href='/careers'>Careers</a></li>
+    <li><a href='/contact'>Contact</a></li>
+  </ul>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'careers.html'})" href="tel:+17374001230" class="nav-phone">(737) 400-1230</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href='/'>Home</a>
+  <a href='/services'>Services</a>
+  <a href='/wood-deck-cedar-park'>Decks</a>
+  <a href='/wood-fence-cedar-park'>Fences</a>
+  <a href='/handyman-cedar-park'>Handyman</a>
+  <a href='/custom-furniture-austin'>Furniture</a>
+  <a href='/gallery'>Gallery</a>
+  <a href='/about'>About</a>
+  <a href='/faq'>FAQ</a>
+  <a href='/careers'>Careers</a>
+  <a href='/contact'>Contact</a>
+  <a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'careers.html'})" href="tel:+17374001230">Call (737) 400-1230</a>
+</div>
+
+<div style="padding-top:64px;">
+  <div class="page-hero">
+    <div class="breadcrumb"><a href='/'>Home</a> / Careers</div>
+    <h1>Join the <em>Fokins Crew</em></h1>
+    <p>We're growing our team across Cedar Park, Leander, Round Rock, Georgetown & Austin. If you take pride in building things right, we want to hear from you.</p>
+  </div>
+</div>
+
+<div class="careers-wrap">
+  <p class="lead">Fokins Custom Woodwork is a family-run business known for quality craftsmanship — cedar fences, custom decks, fine woodwork, and dependable handyman work. As we take on more projects, we're looking for hardworking, reliable people to grow with us. Whether you're an experienced carpenter or just starting out and eager to learn the trade, there's a place on the crew.</p>
+
+  <h2 class="sec-title">Why work with Fokins</h2>
+  <div class="why-grid">
+    <div class="why-card"><h3>Steady local work</h3><p>Consistent projects year-round, all within the Austin metro — no long commutes out of the area.</p></div>
+    <div class="why-card"><h3>Learn real craftsmanship</h3><p>Build fences, decks, and custom woodwork the right way, alongside Gene and an experienced crew.</p></div>
+    <div class="why-card"><h3>Fair, on-time pay</h3><p>Pay based on your experience and skills — and you get paid on time, every time.</p></div>
+    <div class="why-card"><h3>Respected, family-run team</h3><p>A small crew that treats each other and every customer with respect. Do good work, be valued.</p></div>
+  </div>
+
+  <h2 class="sec-title">Open positions</h2>
+  <p class="sec-sub">Roles across everything we build. Don't see an exact match? Apply anyway — we hire for attitude and work ethic.</p>
+  <div class="pos-grid">
+    <div class="pos-card">
+      <span class="pos-tag">Full-time / Seasonal</span>
+      <h3>Fence &amp; Gate Installer</h3>
+      <p>Build cedar privacy fences, set posts in concrete, and hang gates that open smooth and last for years.</p>
+      <ul>
+        <li>Fence & post experience a plus</li>
+        <li>Comfortable with post-hole & concrete work</li>
+        <li>Able to lift and work outdoors</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <span class="pos-tag">Full-time / Seasonal</span>
+      <h3>Deck &amp; Carpentry Builder</h3>
+      <p>Frame and build decks, porches, and pergolas — from footings to finished boards and railings.</p>
+      <ul>
+        <li>Framing / carpentry experience preferred</li>
+        <li>Reads a tape and builds level & square</li>
+        <li>Owns basic hand & power tools (a plus)</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <span class="pos-tag">Skilled</span>
+      <h3>Custom Woodwork / Finish Carpenter</h3>
+      <p>Craft built-ins, furniture, trim, and doors with clean, precise, finish-quality work.</p>
+      <ul>
+        <li>Finish carpentry / cabinetry experience</li>
+        <li>Eye for detail and clean joints</li>
+        <li>Pride in a polished final product</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <span class="pos-tag">Full-time</span>
+      <h3>General Handyman</h3>
+      <p>Handle doors, drywall, painting, TV mounts, small repairs, and installs across customer homes.</p>
+      <ul>
+        <li>Broad handyman / repair skills</li>
+        <li>Good with customers and tidy on-site</li>
+        <li>Own transportation & basic tools</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <span class="pos-tag">Entry level · No experience needed</span>
+      <h3>Crew Helper / Laborer</h3>
+      <p>Support the crew on every job and learn the trade hands-on. A great start if you're reliable and ready to work.</p>
+      <ul>
+        <li>No experience required — we'll train</li>
+        <li>Strong work ethic and willing to learn</li>
+        <li>Show up on time, ready to go</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec-title">What we look for</h2>
+  <ul class="look-list">
+    <li>Reliability — you show up on time, every day</li>
+    <li>Pride in doing quality work</li>
+    <li>Own transportation to job sites</li>
+    <li>Respectful and professional with customers</li>
+    <li>Basic tools a plus (not required for helpers)</li>
+    <li>Legally authorized to work in the U.S.</li>
+    <li>English or Spanish — both welcome</li>
+    <li>Team player with a good attitude</li>
+  </ul>
+
+  <h2 class="sec-title">Apply now</h2>
+  <p class="sec-sub">Fill out the quick form below and Gene will reach out. Prefer to talk? Call or text directly.</p>
+
+  <div class="apply-box">
+    <form name="careers" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="careersForm" onsubmit="return submitCareers(event)">
+      <input type="hidden" name="form-name" value="careers">
+      <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div class="apply-grid">
+        <div class="form-group">
+          <label for="c_name">Full name *</label>
+          <input type="text" id="c_name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="c_phone">Phone *</label>
+          <input type="tel" id="c_phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="c_email">Email</label>
+          <input type="email" id="c_email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="c_position">Position you're interested in *</label>
+          <select id="c_position" name="position" required>
+            <option value="" selected disabled>Select a role…</option>
+            <option>Fence &amp; Gate Installer</option>
+            <option>Deck &amp; Carpentry Builder</option>
+            <option>Custom Woodwork / Finish Carpenter</option>
+            <option>General Handyman</option>
+            <option>Crew Helper / Laborer (entry level)</option>
+            <option>Open to anything</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="c_exp">Years of experience</label>
+          <input type="text" id="c_exp" name="experience" placeholder="e.g. 3 years framing & fences, or none yet">
+        </div>
+        <div class="form-group full">
+          <label for="c_msg">Tell us about yourself</label>
+          <textarea id="c_msg" name="message" placeholder="What you've worked on, tools you have, when you can start, and how to reach you."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+
+    <div class="success-msg" id="careersSuccess">
+      <h3>Application received!</h3>
+      <p>Thanks for your interest in joining the crew. Gene will reach out soon. For the fastest response, call or text below.</p>
+      <a onclick="gtag('event','phone_click',{'event_category':'careers','event_label':'careers.html'})" href="tel:+17374001230" class="btn-primary">Call (737) 400-1230</a>
+    </div>
+
+    <div class="apply-direct">
+      Prefer to reach out directly? Call or text <a onclick="gtag('event','phone_click',{'event_category':'careers','event_label':'careers.html'})" href="tel:+17374001230">(737) 400-1230</a>
+      &nbsp;·&nbsp; Email <a href="mailto:fokinsllc@gmail.com?subject=Job%20Application%20—%20Fokins%20Crew">fokinsllc@gmail.com</a><br>
+      <span style="font-size:0.82rem;">Include your name, the position, and a bit about your experience.</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;">Fokins <span style="color:#D4A843">Custom Woodwork</span></div>
+      <p>Cedar Park's custom woodwork & construction specialists, serving Cedar Park, Leander, Round Rock, Georgetown, and Austin, TX.</p>
+    </div>
+    <div><h4>Pages</h4><ul><li><a href='/'>Home</a></li><li><a href='/services'>Services</a></li>
+    <li><a href='/wood-deck-cedar-park'>Decks</a></li>
+    <li><a href='/wood-fence-cedar-park'>Fences</a></li><li><a href='/handyman-cedar-park'>Handyman</a></li><li><a href='/custom-furniture-austin'>Furniture</a></li><li><a href='/gallery'>Gallery</a></li><li><a href='/about'>About Gene</a></li><li><a href='/careers'>Careers</a></li><li><a href='/contact'>Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'careers.html'})" href="tel:+17374001230">(737) 400-1230</a></li><li><a href="mailto:fokinsllc@gmail.com">✉fokinsllc@gmail.com</a></li><li><a href="https://instagram.com/fokinsllc" target="_blank">@fokinsllc</a></li><li><span>Cedar Park, TX</span></li><li><span>Daily 8 AM – 8 PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fokins Custom Woodwork · Cedar Park, TX · All Rights Reserved</span>
+    <span>Top Pro 2025 · Custom Woodwork · Cedar Park TX</span>
+  </div>
+</footer>
+<a onclick="gtag('event','phone_click',{'event_category':'contact','event_label':'careers.html'})" href="tel:+17374001230" class="phone-sticky">Call Gene: (737) 400-1230</a>
+
+<script>
+  function submitCareers(e) {
+    e.preventDefault();
+    const form = document.getElementById('careersForm');
+    const name = document.getElementById('c_name').value.trim();
+    const phone = document.getElementById('c_phone').value.trim();
+    if (!name || !phone) { alert('Please enter your name and phone number.'); return false; }
+    const data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
+      .then(() => { showCareersSuccess(); })
+      .catch(() => { showCareersSuccess(); });
+    gtag('event', 'generate_lead', { 'event_category': 'careers', 'event_label': 'careers.html' });
+    return false;
+  }
+  function showCareersSuccess() {
+    document.getElementById('careersForm').style.display = 'none';
+    document.getElementById('careersSuccess').classList.add('show');
+  }
+</script>
+<script src="shared.js"></script>
+</body>
+</html>
