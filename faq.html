@@ -629,15 +629,28 @@ function toggleFaq(btn) {
     });
   }, true);
 
-  // 3. Сообщения от формы Jobber внутри iframe
+  // 3. Сообщения от формы Jobber (iframe)
+  //    Jobber шлёт наружу высоту (NNNpx) и 'scrolltop' при переходах между шагами.
+  //    Форма трёхшаговая, при загрузке scrolltop не приходит,
+  //    поэтому третий scrolltop = заявка отправлена.
+  var jobberSteps = 0;
+  var jobberSubmitted = false;
+
   window.addEventListener('message', function (e) {
     if (!e.origin || e.origin.indexOf('getjobber.com') === -1) return;
+
     var raw;
     try { raw = typeof e.data === 'string' ? e.data : JSON.stringify(e.data); }
     catch (err) { raw = String(e.data); }
-    console.log('[FOKINS JOBBER MSG]', raw);
-    if (/submit|success|complete|thank|confirm|created/i.test(raw)) {
-      track('form_submit', { form_source: 'jobber_embed' });
+
+    if (window.FOKINS_DEBUG) console.log('[FOKINS JOBBER MSG]', raw);
+
+    if (/scrolltop/i.test(raw)) {
+      jobberSteps++;
+      if (jobberSteps >= 3 && !jobberSubmitted) {
+        jobberSubmitted = true;
+        track('form_submit', { form_source: 'jobber_embed' });
+      }
     }
   }, false);
 
