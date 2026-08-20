@@ -524,5 +524,92 @@
   updateTotal();
 </script>
 <script src="shared.js"></script>
+<!-- FOKINS-CONVERSION-TRACKING -->
+<script>
+(function () {
+  'use strict';
+
+  function track(name, params) {
+    params = params || {};
+    params.page_path = location.pathname;
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params); } catch (e) {}
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: name }, params));
+    } catch (e) {}
+    if (window.FOKINS_DEBUG) console.log('[FOKINS]', name, params);
+  }
+
+  function closest(el, sel) {
+    while (el && el.nodeType === 1) {
+      if (el.matches && el.matches(sel)) return el;
+      el = el.parentElement;
+    }
+    return null;
+  }
+
+  // 1. Клики по телефону — главная конверсия
+  document.addEventListener('click', function (e) {
+    var a = closest(e.target, 'a[href^="tel:"]');
+    if (!a) return;
+    track('call_click', {
+      phone_number: (a.getAttribute('href') || '').replace('tel:', ''),
+      link_text: (a.textContent || '').trim().slice(0, 100)
+    });
+  }, true);
+
+  // 2. Клики по email
+  document.addEventListener('click', function (e) {
+    var a = closest(e.target, 'a[href^="mailto:"]');
+    if (!a) return;
+    track('email_click', {
+      email: (a.getAttribute('href') || '').replace('mailto:', '').slice(0, 100)
+    });
+  }, true);
+
+  // 3. Сообщения от формы Jobber внутри iframe
+  window.addEventListener('message', function (e) {
+    if (!e.origin || e.origin.indexOf('getjobber.com') === -1) return;
+    var raw;
+    try { raw = typeof e.data === 'string' ? e.data : JSON.stringify(e.data); }
+    catch (err) { raw = String(e.data); }
+    console.log('[FOKINS JOBBER MSG]', raw);
+    if (/submit|success|complete|thank|confirm|created/i.test(raw)) {
+      track('form_submit', { form_source: 'jobber_embed' });
+    }
+  }, false);
+
+  // 4. Взаимодействие с формой: клик внутри чужого iframe вызывает blur окна
+  var formTouched = false;
+  window.addEventListener('blur', function () {
+    if (formTouched) return;
+    var el = document.activeElement;
+    if (el && el.tagName === 'IFRAME' && (el.src || '').indexOf('getjobber.com') !== -1) {
+      formTouched = true;
+      track('form_interaction', { form_source: 'jobber_embed' });
+    }
+  }, true);
+
+  // 5. Форма попала в зону видимости
+  if ('IntersectionObserver' in window) {
+    document.addEventListener('DOMContentLoaded', function () {
+      var frames = document.querySelectorAll('iframe[src*="getjobber.com"]');
+      if (!frames.length) return;
+      var seen = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && !seen) {
+            seen = true;
+            track('form_view', { form_source: 'jobber_embed' });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      frames.forEach(function (f) { io.observe(f); });
+    });
+  }
+})();
+</script>
+<!-- /FOKINS-CONVERSION-TRACKING -->
 </body>
 </html>
