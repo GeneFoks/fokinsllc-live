@@ -555,22 +555,32 @@ function toggleFaq(btn) {
   }, true);
 
   // 5. Форма попала в зону видимости
+  //    Jobber вставляет iframe асинхронно, поэтому ждём его появления опросом.
   if ('IntersectionObserver' in window) {
-    document.addEventListener('DOMContentLoaded', function () {
+    var seen = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && !seen) {
+          seen = true;
+          track('form_view', { form_source: 'jobber_embed' });
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    var tries = 0;
+    var hunt = setInterval(function () {
+      tries++;
       var frames = document.querySelectorAll('iframe[src*="getjobber.com"]');
-      if (!frames.length) return;
-      var seen = false;
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && !seen) {
-            seen = true;
-            track('form_view', { form_source: 'jobber_embed' });
-            io.disconnect();
-          }
-        });
-      }, { threshold: 0.4 });
-      frames.forEach(function (f) { io.observe(f); });
-    });
+      if (frames.length) {
+        for (var i = 0; i < frames.length; i++) io.observe(frames[i]);
+        clearInterval(hunt);
+        if (window.FOKINS_DEBUG) console.log('[FOKINS] iframe найден, попыток:', tries);
+      } else if (tries >= 60) {
+        clearInterval(hunt);
+        if (window.FOKINS_DEBUG) console.log('[FOKINS] iframe не найден за 30с');
+      }
+    }, 500);
   }
 })();
 </script>
