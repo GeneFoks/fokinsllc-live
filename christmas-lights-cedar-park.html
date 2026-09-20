@@ -70,7 +70,8 @@
         radial-gradient(circle at 12% 18%, rgba(212,68,68,0.22) 0, transparent 34%),
         radial-gradient(circle at 85% 12%, rgba(92,160,90,0.20) 0, transparent 32%),
         radial-gradient(circle at 50% 95%, rgba(212,168,67,0.18) 0, transparent 45%),
-        radial-gradient(circle at 70% 40%, rgba(80,120,200,0.12) 0, transparent 30%);
+        radial-gradient(circle at 70% 40%, rgba(80,120,200,0.12) 0, transparent 30%),
+        url('photos/govee-lights-blue-purple.jpg') center 65%/cover no-repeat;
     }
     /* string of lights along the top */
     .light-string { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding-top: 6px; pointer-events: none; }
@@ -140,6 +141,13 @@
     .govee-video-text .check-list li::before { color: var(--gold); }
     @media (max-width: 800px) { .govee-video-section { grid-template-columns: 1fr; padding: 2rem 1.5rem; } .govee-video-frame { margin: 0 auto; } }
 
+    /* GALLERY */
+    .xmas-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 5rem; }
+    .xg-card { position: relative; border-radius: 16px; overflow: hidden; background: #000; }
+    .xg-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+    .xg-tag { position: absolute; bottom: 12px; left: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 20px; background: rgba(0,0,0,0.6); color: #F5D98A; }
+    @media (max-width: 700px) { .xmas-gallery { grid-template-columns: 1fr; } .xg-card img { height: 240px; } }
+
     /* WHY PRO */
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
     .why-card { background: #fff; border: 1px solid #EDE4D8; border-radius: 16px; padding: 1.75rem; }
@@ -187,10 +195,14 @@
   <meta property="og:url" content="https://fokinsllc.com/christmas-lights-cedar-park" />
   <meta property="og:title" content="Christmas Light Installation Cedar Park TX — Fokins" />
   <meta property="og:description" content="Seasonal C9 LED lights from $3/ft all-inclusive or Govee permanent smart lights from $260 — install, takedown & free bulb replacement included. Free estimate: (737) 400-1230." />
+  <meta property="og:image" content="https://fokinsllc.com/photos/govee-lights-blue-purple.jpg" />
+  <meta property="og:image:width" content="1674" />
+  <meta property="og:image:height" content="1256" />
   <meta property="og:site_name" content="Fokins Custom Woodwork" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Christmas Light Installation Cedar Park TX — Fokins" />
   <meta name="twitter:description" content="Seasonal C9 LED lights from $3/ft all-inclusive or Govee permanent smart lights from $260. Free estimate: (737) 400-1230." />
+  <meta name="twitter:image" content="https://fokinsllc.com/photos/govee-lights-blue-purple.jpg" />
 </head>
 <body>
 
@@ -372,7 +384,21 @@
     </div>
   </div>
 
-  <!-- GALLERY: добавить фото, когда появятся (подписать Govee vs классика) -->
+  <!-- GALLERY (классика C9: фото добавить, когда появятся) -->
+  <div class="section-header">
+    <span class="section-label">Recent Installs</span>
+    <h2>Our Work, <em>After Dark</em></h2>
+  </div>
+  <div class="xmas-gallery">
+    <div class="xg-card">
+      <img src="photos/govee-lights-blue-purple.jpg" alt="Govee permanent outdoor lights in blue and purple on a two-story home installed by Fokins in Cedar Park TX" loading="lazy"/>
+      <span class="xg-tag">Govee Permanent · Two-story</span>
+    </div>
+    <div class="xg-card">
+      <img src="photos/govee-lights-red-white.jpg" alt="Govee permanent outdoor lights in red and warm white on a stone house installed by Fokins near Austin TX" loading="lazy"/>
+      <span class="xg-tag">Govee Permanent · Custom scene</span>
+    </div>
+  </div>
 
   <!-- FAQ -->
   <div class="faq-mini" style="margin-bottom:2rem;">
