@@ -143,11 +143,13 @@
     @media (max-width: 800px) { .govee-video-section { grid-template-columns: 1fr; padding: 2rem 1.5rem; } .govee-video-frame { margin: 0 auto; } }
 
     /* GALLERY */
-    .xmas-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 5rem; }
-    .xg-card { position: relative; border-radius: 16px; overflow: hidden; background: #000; }
-    .xg-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+    .xmas-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+    .xg-card { position: relative; border-radius: 16px; overflow: hidden; background: #000; grid-column: span 2; }
+    .xg-card.wide { grid-column: span 3; }
+    .xg-card img { width: 100%; height: 260px; object-fit: cover; display: block; }
+    .xg-card.wide img { height: 340px; }
     .xg-tag { position: absolute; bottom: 12px; left: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 20px; background: rgba(0,0,0,0.6); color: #F5D98A; }
-    @media (max-width: 700px) { .xmas-gallery { grid-template-columns: 1fr; } .xg-card img { height: 240px; } }
+    @media (max-width: 700px) { .xmas-gallery { grid-template-columns: 1fr; } .xg-card, .xg-card.wide { grid-column: span 1; } .xg-card img, .xg-card.wide img { height: 240px; } }
 
     /* WHY PRO */
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
@@ -391,13 +393,25 @@
     <h2>Our Work, <em>After Dark</em></h2>
   </div>
   <div class="xmas-gallery">
-    <div class="xg-card">
+    <div class="xg-card wide">
       <img src="photos/govee-lights-blue-purple.jpg" alt="Govee permanent outdoor lights in blue and purple on a two-story home installed by Fokins in Cedar Park TX" loading="lazy"/>
       <span class="xg-tag">Govee Permanent · Two-story</span>
     </div>
-    <div class="xg-card">
+    <div class="xg-card wide">
       <img src="photos/govee-lights-red-white.jpg" alt="Govee permanent outdoor lights in red and warm white on a stone house installed by Fokins near Austin TX" loading="lazy"/>
       <span class="xg-tag">Govee Permanent · Custom scene</span>
+    </div>
+    <div class="xg-card">
+      <img src="photos/govee-lights-dusk-multicolor.webp" alt="Govee permanent outdoor lights multi-color scene at dusk on a stone and stucco home Cedar Park TX" loading="lazy"/>
+      <span class="xg-tag">Govee Permanent · Multi-color</span>
+    </div>
+    <div class="xg-card">
+      <img src="photos/govee-lights-red-blue.webp" alt="Govee permanent outdoor lights red and blue scene on a two-story brick home near Austin TX" loading="lazy"/>
+      <span class="xg-tag">Govee Permanent · Game-day scene</span>
+    </div>
+    <div class="xg-card">
+      <img src="photos/govee-lights-blue-violet.webp" alt="Govee permanent outdoor lights cool blue and violet roofline lighting Cedar Park TX" loading="lazy"/>
+      <span class="xg-tag">Govee Permanent · Blue &amp; violet</span>
     </div>
   </div>
 
