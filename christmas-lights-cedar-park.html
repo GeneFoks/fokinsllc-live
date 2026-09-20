@@ -128,6 +128,18 @@
     .offer-note { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; line-height: 1.6; }
     @media (max-width: 800px) { .offers-grid { grid-template-columns: 1fr; } }
 
+    /* GOVEE VIDEO */
+    .govee-video-section { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center; background: var(--dark); border-radius: 24px; padding: 3rem; margin-bottom: 5rem; }
+    .govee-video-frame { width: min(300px, 70vw); aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 16px 48px rgba(0,0,0,0.45); }
+    .govee-video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .govee-video-text .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: rgba(212,168,67,0.12); padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; }
+    .govee-video-text h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; line-height: 1.3; margin-bottom: 1rem; }
+    .govee-video-text h2 em { font-style: italic; color: var(--gold); }
+    .govee-video-text p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem; }
+    .govee-video-text .check-list li { color: rgba(255,255,255,0.8); }
+    .govee-video-text .check-list li::before { color: var(--gold); }
+    @media (max-width: 800px) { .govee-video-section { grid-template-columns: 1fr; padding: 2rem 1.5rem; } .govee-video-frame { margin: 0 auto; } }
+
     /* WHY PRO */
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
     .why-card { background: #fff; border: 1px solid #EDE4D8; border-radius: 16px; padding: 1.75rem; }
@@ -290,6 +302,23 @@
       <p class="offer-note">Price includes Govee hardware and professional installation. Final quote depends on roofline length and height.</p>
     </div>
 
+  </div>
+
+  <!-- GOVEE VIDEO -->
+  <div class="govee-video-section">
+    <div class="govee-video-frame">
+      <video src="govee-lights.mp4" controls muted loop playsinline preload="metadata" title="Govee Permanent Outdoor Lights in action — Fokins Custom Woodwork"></video>
+    </div>
+    <div class="govee-video-text">
+      <span class="section-label">See It In Action</span>
+      <h2>This Is What <em>Permanent</em> Looks Like</h2>
+      <p>One install — and your house is ready for every holiday, game day, or just a warm evening glow. Watch how Govee permanent lights switch scenes right from the phone: full-color Christmas, spooky Halloween orange, or a subtle warm white for the rest of the year.</p>
+      <ul class="check-list">
+        <li>Scenes change in seconds from the app</li>
+        <li>Discreet channels — nearly invisible in daylight</li>
+        <li>Installed once, enjoyed year-round</li>
+      </ul>
+    </div>
   </div>
 
   <!-- WHY PRO -->
