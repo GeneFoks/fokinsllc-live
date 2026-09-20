@@ -46,6 +46,10 @@ nav {
   border-radius: 10px; padding: 0.5rem 0; min-width: 180px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 200;
 }
+.dropdown-menu::after {
+  /* invisible bridge over the 12px gap so hover isn't lost between trigger and menu */
+  content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px;
+}
 .dropdown-menu::before {
   content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
   border: 6px solid transparent; border-bottom-color: rgba(212,168,67,0.2);
