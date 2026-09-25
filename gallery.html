@@ -186,6 +186,7 @@
     <button class="filter-btn" data-cat="wood" onclick="filterGallery('wood',this)">Custom Wood <span class="count-label" id="count-wood"></span></button>
     <button class="filter-btn" data-cat="deck" onclick="filterGallery('deck',this)">Deck & Outdoor <span class="count-label" id="count-deck"></span></button>
     <button class="filter-btn" data-cat="pergola" onclick="filterGallery('pergola',this)">Pergola <span class="count-label" id="count-pergola"></span></button>
+    <button class="filter-btn" data-cat="lights" onclick="filterGallery('lights',this)">🎄 Christmas Lights <span class="count-label" id="count-lights"></span></button>
     <button class="filter-btn" data-cat="handyman" onclick="filterGallery('handyman',this)">Handyman <span class="count-label" id="count-handyman"></span></button>
     <button class="filter-btn" data-cat="special" onclick="filterGallery('special',this)">Special <span class="count-label" id="count-special"></span></button>
   </div>
@@ -444,10 +445,28 @@
       <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Outdoor Sauna Installation</span></div>
     </div>
 
-    <div class="photo-card" data-category="special" data-label="Smart LED Exterior Lighting" onclick="openLightbox(this)">
-      <img src="photos/special-smart-led-exterior.webp" alt="Smart LED exterior lighting installation Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Special</span><span class="featured-badge">★ Unique</span>
-      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Smart LED Exterior Lighting</span></div>
+    <div class="photo-card" data-category="lights" data-label="Govee Permanent Lights — Two-Story Home" onclick="openLightbox(this)">
+      <img src="photos/govee-lights-blue-purple.jpg" alt="Govee permanent outdoor lights blue and purple two-story home Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Lights</span><span class="featured-badge">★ Unique</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Christmas Lights</span><span class="photo-label">Govee Permanent Lights — Two-Story Home</span></div>
+    </div>
+
+    <div class="photo-card" data-category="lights" data-label="Govee Permanent Lights — Custom Scene" onclick="openLightbox(this)">
+      <img src="photos/govee-lights-red-white.jpg" alt="Govee permanent outdoor lights red and warm white stone house near Austin TX" loading="lazy">
+      <span class="cat-badge">Lights</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Christmas Lights</span><span class="photo-label">Govee Permanent Lights — Custom Scene</span></div>
+    </div>
+
+    <div class="photo-card" data-category="lights" data-label="Govee Permanent Lights — Multi-Color at Dusk" onclick="openLightbox(this)">
+      <img src="photos/govee-lights-dusk-multicolor.webp" alt="Govee permanent outdoor lights multi-color scene at dusk Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Lights</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Christmas Lights</span><span class="photo-label">Govee Permanent Lights — Multi-Color at Dusk</span></div>
+    </div>
+
+    <div class="photo-card" data-category="lights" data-label="Govee Permanent Lights — Game-Day Scene" onclick="openLightbox(this)">
+      <img src="photos/govee-lights-red-blue.webp" alt="Govee permanent outdoor lights red and blue scene two-story brick home near Austin TX" loading="lazy">
+      <span class="cat-badge">Lights</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Christmas Lights</span><span class="photo-label">Govee Permanent Lights — Game-Day Scene</span></div>
     </div>
 
     <div class="photo-card" data-category="handyman" data-label="Kitchen Cabinet Repainting — Before & After" onclick="openLightbox(this)">
@@ -528,11 +547,6 @@
       <div class="photo-overlay"><span class="photo-cat-tag">Custom Wood</span><span class="photo-label">Bathroom Floating Shelves — Detail</span></div>
     </div>
 
-    <div class="photo-card" data-category="special" data-label="Outdoor Sauna — Interior View" onclick="openLightbox(this)">
-      <img src="photos/special-sauna-interior.webp" alt="Outdoor sauna interior Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Special</span>
-      <div class="photo-overlay"><span class="photo-cat-tag">Special Project</span><span class="photo-label">Outdoor Sauna — Interior View</span></div>
-    </div>
 
   </div>
 </section>
@@ -653,8 +667,8 @@
   function applyFilterFromURL(){
     var raw=(location.hash||'').replace('#','').toLowerCase();
     if(!raw){try{raw=(new URLSearchParams(location.search).get('filter')||'').toLowerCase();}catch(e){}}
-    raw=raw.replace(/s$/,'');
     var btn=document.querySelector('.filter-btn[data-cat="'+raw+'"]');
+    if(!btn){raw=raw.replace(/s$/,'');btn=document.querySelector('.filter-btn[data-cat="'+raw+'"]');}
     if(btn&&raw!=='all'){
       filterGallery(raw,btn);
       var tabs=document.querySelector('.filter-tabs');
@@ -667,7 +681,7 @@
   function updateCounts(){
     const all=document.querySelectorAll('.photo-card');
     document.getElementById('count-all').textContent='('+all.length+')';
-    ['fence','gate','wood','deck','pergola','handyman','special'].forEach(c=>{
+    ['fence','gate','wood','deck','pergola','lights','handyman','special'].forEach(c=>{
       const n=document.querySelectorAll('.photo-card[data-category="'+c+'"]').length;
       const el=document.getElementById('count-'+c);
       if(el) el.textContent=n>0?'('+n+')':'';
