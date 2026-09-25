@@ -180,17 +180,61 @@
   </div>
 
   <div class="filter-tabs">
-    <button class="filter-btn active" onclick="filterGallery('all',this)">All Work <span class="count-label" id="count-all"></span></button>
-    <button class="filter-btn" onclick="filterGallery('fence',this)">Fences <span class="count-label" id="count-fence"></span></button>
-    <button class="filter-btn" onclick="filterGallery('gate',this)">Gates <span class="count-label" id="count-gate"></span></button>
-    <button class="filter-btn" onclick="filterGallery('wood',this)">Custom Wood <span class="count-label" id="count-wood"></span></button>
-    <button class="filter-btn" onclick="filterGallery('deck',this)">Deck & Outdoor <span class="count-label" id="count-deck"></span></button>
-    <button class="filter-btn" onclick="filterGallery('pergola',this)">Pergola <span class="count-label" id="count-pergola"></span></button>
-    <button class="filter-btn" onclick="filterGallery('handyman',this)">Handyman <span class="count-label" id="count-handyman"></span></button>
-    <button class="filter-btn" onclick="filterGallery('special',this)">Special <span class="count-label" id="count-special"></span></button>
+    <button class="filter-btn active" data-cat="all" onclick="filterGallery('all',this)">All Work <span class="count-label" id="count-all"></span></button>
+    <button class="filter-btn" data-cat="fence" onclick="filterGallery('fence',this)">Fences <span class="count-label" id="count-fence"></span></button>
+    <button class="filter-btn" data-cat="gate" onclick="filterGallery('gate',this)">Gates <span class="count-label" id="count-gate"></span></button>
+    <button class="filter-btn" data-cat="wood" onclick="filterGallery('wood',this)">Custom Wood <span class="count-label" id="count-wood"></span></button>
+    <button class="filter-btn" data-cat="deck" onclick="filterGallery('deck',this)">Deck & Outdoor <span class="count-label" id="count-deck"></span></button>
+    <button class="filter-btn" data-cat="pergola" onclick="filterGallery('pergola',this)">Pergola <span class="count-label" id="count-pergola"></span></button>
+    <button class="filter-btn" data-cat="handyman" onclick="filterGallery('handyman',this)">Handyman <span class="count-label" id="count-handyman"></span></button>
+    <button class="filter-btn" data-cat="special" onclick="filterGallery('special',this)">Special <span class="count-label" id="count-special"></span></button>
   </div>
 
   <div class="photo-grid" id="photoGrid">
+
+    <!-- ── NEW — Fence, Gate & Round Deck batch (Sep 2026) ── -->
+
+    <div class="photo-card" data-category="deck" data-label="Round Deck Built Around a Tree" onclick="openLightbox(this)">
+      <img src="photos/deck-round-tree.jpg" alt="Custom round wood deck built around a tree Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Deck</span><span class="featured-badge">★ New</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Deck</span><span class="photo-label">Round Deck Built Around a Tree</span></div>
+    </div>
+
+    <div class="photo-card" data-category="gate" data-label="Double Cedar Gate — Stone House" onclick="openLightbox(this)">
+      <img src="photos/gate-cedar-double-stone-house.jpg" alt="Double cedar gate and fence panel by stone house Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Gate</span><span class="featured-badge">★ New</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Gate</span><span class="photo-label">Double Cedar Gate — Stone House</span></div>
+    </div>
+
+    <div class="photo-card" data-category="fence" data-label="New Cedar Fence & Gate" onclick="openLightbox(this)">
+      <img src="photos/fence-cedar-gate-blue-house.jpg" alt="New cedar privacy fence with gate backyard Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span><span class="featured-badge">★ New</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">New Cedar Fence &amp; Gate</span></div>
+    </div>
+
+    <div class="photo-card" data-category="fence" data-label="Cedar Privacy Fence Section" onclick="openLightbox(this)">
+      <img src="photos/fence-cedar-section-brick.jpg" alt="Cedar privacy fence section replacement next to brick home Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">Cedar Privacy Fence Section</span></div>
+    </div>
+
+    <div class="photo-card" data-category="fence" data-label="Pressure-Treated Fence & Gate — Corner Lot" onclick="openLightbox(this)">
+      <img src="photos/fence-pine-corner-gate.jpg" alt="Pressure-treated pine privacy fence and gate on corner lot Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">Pressure-Treated Fence &amp; Gate — Corner Lot</span></div>
+    </div>
+
+    <div class="photo-card" data-category="fence" data-label="New Pressure-Treated Privacy Fence" onclick="openLightbox(this)">
+      <img src="photos/fence-pine-line-gate.jpg" alt="New pressure-treated pine privacy fence with gate Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Fence</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">New Pressure-Treated Privacy Fence</span></div>
+    </div>
+
+    <div class="photo-card" data-category="gate" data-label="Gate Frame & Latch — Metal Posts" onclick="openLightbox(this)">
+      <img src="photos/gate-pine-latch-metal-posts.jpg" alt="Wood gate frame with latch on galvanized metal posts Cedar Park TX" loading="lazy">
+      <span class="cat-badge">Gate</span>
+      <div class="photo-overlay"><span class="photo-cat-tag">Gate</span><span class="photo-label">Gate Frame &amp; Latch — Metal Posts</span></div>
+    </div>
 
     <div class="photo-card" data-category="fence" data-label="New Cedar Privacy Fence" onclick="openLightbox(this)">
       <img src="photos/fence-cedar-privacy-01.webp" alt="New cedar privacy fence installation Cedar Park TX" loading="lazy">
@@ -214,7 +258,7 @@
 
     <div class="photo-card" data-category="fence" data-label="New Cedar Privacy Fence Installation" onclick="openLightbox(this)">
       <img src="photos/fence-new-cedar-sidewalk.jpeg" alt="New cedar privacy fence installation along sidewalk Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Fence</span><span class="featured-badge">★ New</span>
+      <span class="cat-badge">Fence</span>
       <div class="photo-overlay"><span class="photo-cat-tag">Fence</span><span class="photo-label">New Cedar Privacy Fence Installation</span></div>
     </div>
 
@@ -232,7 +276,7 @@
 
     <div class="photo-card" data-category="gate" data-label="New Wood Gate & Fence Replacement" onclick="openLightbox(this)">
       <img src="photos/gate-new-wood-replacement.jpeg" alt="New wood gate and fence section replacement Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Gate</span><span class="featured-badge">★ New</span>
+      <span class="cat-badge">Gate</span>
       <div class="photo-overlay"><span class="photo-cat-tag">Gate</span><span class="photo-label">New Wood Gate &amp; Fence Replacement</span></div>
     </div>
 
@@ -244,7 +288,7 @@
 
     <div class="photo-card" data-category="deck" data-label="New Wood Deck — Backyard Patio" onclick="openLightbox(this)">
       <img src="photos/deck-new-wood-backyard.jpeg" alt="New wood deck backyard patio Cedar Park TX" loading="lazy">
-      <span class="cat-badge">Deck &amp; Outdoor</span><span class="featured-badge">★ New</span>
+      <span class="cat-badge">Deck &amp; Outdoor</span>
       <div class="photo-overlay"><span class="photo-cat-tag">Deck &amp; Outdoor</span><span class="photo-label">New Wood Deck — Backyard Patio</span></div>
     </div>
 
@@ -601,7 +645,24 @@
     document.querySelectorAll('.photo-card').forEach(card=>{
       card.style.display=(cat==='all'||card.dataset.category===cat)?'':'none';
     });
+    // keep the URL shareable: /gallery#fence opens with that filter on
+    try{history.replaceState(null,'',cat==='all'?location.pathname:'#'+cat);}catch(e){}
   }
+
+  // deep link: /gallery#fence, #gate, #deck… (plural forms tolerated) activates the filter
+  function applyFilterFromURL(){
+    var raw=(location.hash||'').replace('#','').toLowerCase();
+    if(!raw){try{raw=(new URLSearchParams(location.search).get('filter')||'').toLowerCase();}catch(e){}}
+    raw=raw.replace(/s$/,'');
+    var btn=document.querySelector('.filter-btn[data-cat="'+raw+'"]');
+    if(btn&&raw!=='all'){
+      filterGallery(raw,btn);
+      var tabs=document.querySelector('.filter-tabs');
+      if(tabs) setTimeout(function(){tabs.scrollIntoView({behavior:'smooth'});},150);
+    }
+  }
+  applyFilterFromURL();
+  window.addEventListener('hashchange',applyFilterFromURL);
 
   function updateCounts(){
     const all=document.querySelectorAll('.photo-card');
